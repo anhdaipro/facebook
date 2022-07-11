@@ -5,7 +5,7 @@ import { headers,expiry,showchat,uploadpost } from '../actions/auth';
 import { connect } from 'react-redux';
 import Navbar from "./Navbar"
 import Sibamenu from './Sibamenu';
-import { listfriendURL, originurl ,liststoryfriendURL,listpostURL, createthreadURL, countpostURL} from '../urls';
+import { listfriendURL,chatgroupURL, originurl ,liststoryfriendURL,listpostURL, conversationsURL, countpostURL} from '../urls';
 import RoomchatCreate from './Roomchat';
 import { Navigate,useNavigate } from 'react-router';
 import { listbackground, timeago } from '../constants';
@@ -15,6 +15,7 @@ const Homepage=(props)=>{
     const {user, isAuthenticated,post,showchat,datachat,uploadpost}=props
     const navigate =useNavigate()
     const [listfriend,setListfriend]=useState([])
+    const [listgroup,setListgroup]=useState([])
     const [state,setState]=useState({addpost:false,addfile:false})
     const [liststories,setListstories]=useState([])
     const [listpost,setListpost]=useState([])
@@ -47,11 +48,12 @@ const Homepage=(props)=>{
         (async ()=>{
             try{
                 await isAuthenticated
-                const [obj1, obj2,obj3,obj4] = await axios.all([
+                const [obj1, obj2,obj3,obj4,obj5] = await axios.all([
                     axios.get(listfriendURL,headers),
                     axios.get(liststoryfriendURL,headers),
                     axios.get(listpostURL,headers),
                     axios.get(countpostURL,headers),
+                    axios.get(chatgroupURL,headers),
                 ])
                 setListfriend(obj1.data)
                 setListstories(obj2.data)
@@ -60,6 +62,7 @@ const Homepage=(props)=>{
                 })
                 setLoading(true)
                 setListpost(data)
+                setListgroup(obj5.data)
                 setCount(obj4.data.count)
             }
             catch{
@@ -94,6 +97,19 @@ const Homepage=(props)=>{
         e.preventDefault()
         let data={member:item.id!=user.id?[item.id,user.id]:[user.id],thread:null}
         showchat(data)
+    } 
+
+    const showchatgroup=(e,thread)=>{
+        (async()=>{
+            try{
+                const res =await axios.get(`${conversationsURL}/${thread.id}`,headers)
+                const datachat={thread:{id:thread.id,count_message:thread.count_message},members:thread.members,show:true,messages:res.data}
+                showchat(datachat)
+            }
+            catch(e){
+                console.log(e)
+            }
+        })()  
     } 
     return(
     <>
@@ -191,8 +207,9 @@ const Homepage=(props)=>{
                     </div>
                 </div>
                 <div class="right-panel">
-                    <div class="friends-section">
-                        <h4>Friends</h4>
+                    <div class="friends-section relative">
+                        <h4>Người liên hệ</h4>
+                        <div>
                         {listfriend.map(item=>
                             <a onClick={e=>setshowchat(e,item)} key={item.id} class='friend' href="#">
                                 <div class="dp">
@@ -207,7 +224,43 @@ const Homepage=(props)=>{
                                 </div>
                                 <p class="name">{item.name}</p>
                             </a>
-                        )}                    
+                        )} 
+                        </div>                   
+                    </div>
+                    <div class="re5koujm pmk7jnqg ay7djpcl cypi58rs qee0rdz8 pwoa4pd7"></div>
+                    <div class="group-section py-1">
+                        <h4>Cuộc trò chuyện nhóm</h4>
+                        <div>
+                        {listgroup.map(item=>
+                            <div onClick={e=>showchatgroup(e,item)} key={item.id} class='friend flex-center flex' href="#">
+                                <div class="dp flex">
+                                    {item.members.find(member=>member.user_id!=user.id)?
+                                    item.members.filter(member=>member.user_id!=user.id).map((member,i)=><>
+                                    {i<2?
+                                    <div className={`pmk7jnqg ${i==0?'i09qtzwb j9ispegn':'n7fi1qx3 kr520xx4'}`}>
+                                        <img src={originurl+member.avatar} height='24' width='24' alt=""/>
+                                    </div>:''}</>):<div><img src={originurl+user.avatar} height='48' width='48' alt=""/></div>}
+                                    <div style={{bottom: '5px',right: '5px',transform: 'translate(50%, 50%)'}} className="s45kfl79 emlxlaya bkmhp75w spb7xbtv pmk7jnqg kavbgo14">                           
+                                        <span class="status-online" data-visualcompletion="ignore"></span>            
+                                    </div>
+                                </div>
+                                <span class="name">
+                                {item.members.find(member=>member.user_id!=user.id)?
+                                item.members.filter(member=>member.user_id!=user.id).map((member,i)=>`${member.name}${i<item.members.filter(member=>member.user_id!=user.id).length-2?', ':i==item.members.filter(member=>member.user_id!=user.id).length-2?' và ':''}`):user.name}
+                                </span>
+                            </div>
+                        )} 
+                        </div>  
+                        <div>
+                            <div className="flex flex-center">
+                                <div class="j83agx80 cbu4d94t tvfksri0 aov4n071 bi6gxh9e l9j0dhe7 nqmvxvec m6uieof3 icc0peqn hx8drtub j13r6fgp nddp3pr2">
+                                    <div class="s45kfl79 emlxlaya bkmhp75w spb7xbtv bp9cbjyn rt8b4zig n8ej3o3l agehan2d sk4xxmp2 rq0escxv pq6dq46d taijpn5t l9j0dhe7 tdjehn4e tv7at329 thwo4zme">
+                                        <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style={{backgroundImage:`url('https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/9TwAIBugiaE.png')`,backgroundPosition:`0 -1006px`,backgroundSize:'auto',width:'20px',height:'20px',backgroundRepeat:'no-repeat',display:'inline-block'}}></i>
+                                    </div>
+                                </div>
+                                <div class="qzhwtbm6 knvmm38d"><span class="d2edcug0 hpfvmrgz qv66sw1b c1et5uql lr9zc1uh a8c37x1j fe6kdd0r mau55g9w c8b282yb keod5gw0 nxhoafnm aigsh9s9 d3f4x2em iv3no6db jq4qci2q a3bd9o3v ekzkrbhg oo9gr5id hzawbc8m" dir="auto">Tạo nhóm mới</span></div>
+                            </div>
+                        </div>  
                     </div>
                 </div>
             </div>:''}

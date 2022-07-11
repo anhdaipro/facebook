@@ -37,7 +37,7 @@ const Postdetail=(props)=>{
                 <a href="#">
                     <div className="profile-images">
                         <img src={originurl+item.user.avatar}/>
-                        <div className={`${onlineUsers.some(user=>user.userId==item.user.id)?'online-icon':'offline_icon'}`}></div>
+                        <div className={`${onlineUsers.some(user=>user.userId==item.user.id) || item.user.id==user.id?'online-icon':'offline_icon'}`}></div>
                     </div>
                 </a>
                 

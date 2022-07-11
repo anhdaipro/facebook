@@ -182,28 +182,30 @@ const Chatbody=(props)=>{
             listfile.filter(file=>file.filetype=='image').map(file=>{
                 form.append('image',file.file)
             }) 
+            setListfile(listfile.filter(file=>file.filetype!='image')) 
             axios.post(`${conversationsURL}/${thread.id}`,form,headers)
             .then(res=>{  
                 const messages={message:res.data,thread_id:thread.id,send_by:user.id}
                 socket.current.emit("sendData",messages)
-                setListfile([]) 
+                
                 setShowemoji(false)
                 setEditorState(EditorState.createEmpty())
             })
         } 
 
-        if(listfile.filter(file=>file.filetype!='image').length>0){  
+        if(listfile.find(file=>file.filetype!=='image')){  
             setTimeout(()=>{
                 let formfile=new FormData()
                 formfile.append('action','create-message')
                 formfile.append('send_by',user.id)
-                listfile.map((file,i)=>{
+                listfile.filter(file=>file.filetype!=='image').map((file,i)=>{
                     formfile.append('file',file.file)
+                    formfile.append('filetype',file.filetype)
                     formfile.append('file_preview',file.file_preview)
                     formfile.append('duration',file.duration)
                     formfile.append('name',file.file_name)
                 })  
-                const messagefile=listfile.map((file,i)=>{
+                const messagefile=listfile.filter(file=>file.filetype!=='image').map((file,i)=>{
                     return({message:null,filetype:file.filetype,
                     user_id:user.id,date_created:new Date().toString(),
                     list_file:[{media:file.media,file_name:file.file_name,
@@ -324,7 +326,6 @@ const Chatbody=(props)=>{
     }
 
     const deletefile=(file,i)=>{
-        listfile.splice(i,1)
         const list_files=listfile.filter(item=>listfile.indexOf(item)!=i)
         setListfile(list_files)
        
@@ -504,15 +505,17 @@ const Chatbody=(props)=>{
                                             {message.list_file.map(file=>{
                                                 if(file.filetype=='image'){
                                                     return(
-                                                        <Link to={`/message_media?thread_id=${thread.id}&message_id=${message.id}&id=${file.id}`}>
-                                                            <div key={file.file_name} style={{width:`${message.list_file.length==1?'200px':''}`}} className={`chat-file ${message.list_file.length>2?'kuivcneq':message.list_file.length==2?'hkbzh7o3':''}`}>
+                                                        
+                                                        <div key={file.file_name} style={{width:`${message.list_file.length==1?'200px':''}`}} className={`chat-file ${message.list_file.length>2?'kuivcneq':message.list_file.length==2?'hkbzh7o3':''}`}>
+                                                            <Link to={`/message_media?thread_id=${thread.id}&message_id=${message.id}&id=${file.id}`}>
                                                                 <div className="chat-message-image">
                                                                     <div className="image">
                                                                         <img className="chat-image" src={originurl+file.file} alt="" />
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                        </Link>
+                                                            </Link>
+                                                        </div>
+                                                       
                                                     )
                                                 }
                                             })}

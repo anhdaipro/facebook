@@ -41,6 +41,7 @@ export const filepostURL=`${api}/v3/photo`
 export const countpostURL=`${api}/v3/post/count`
 export const countstoryURL=`${api}/v3/story/count`
 export const countnotifiURL=`${api}/v3/notification/count`
+export const chatgroupURL=`${api}/v3/group/list`
 // live
 export const listcategoriesURL=`${api}/v2/categories/`
 export const sendcoinURL=`${api}/v2/give/coin`

@@ -176,8 +176,6 @@ const Notifications=(props)=>{
                             <h4 className="jsx-585722981 inbox-content-notification">Thông báo</h4>
                             <div data-e2e="inbox-bar" className="jsx-585722981 group-wrap">
                                 <span data-e2e="all" className="jsx-585722981 selected">Tất cả</span>
-                                <span data-e2e="likes" className="jsx-585722981">Bày tỏ cảm xúc</span>
-                                <span data-e2e="comments" className="jsx-585722981">Bình luận</span>
                                 <span data-e2e="mentions" className="jsx-585722981">Nhắc đến</span>
                                 <span data-e2e="followers" className="jsx-585722981">Lời mời kết bạn</span>
                             </div>

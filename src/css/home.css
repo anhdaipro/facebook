@@ -286,8 +286,11 @@
 }
 
 .right-panel .pages-section h4,
-.right-panel .friends-section h4{
+.right-panel .friends-section h4,.right-panel .group-section h4{
     margin-bottom:10px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--secondary-text);
 }
 
 .right-panel .pages-section .page,
@@ -307,7 +310,7 @@
 }
 
 .right-panel .pages-section .page > .dp,
-.right-panel .friends-section .friend > .dp{
+.right-panel .friends-section .friend > .dp,.right-panel .group-section .friend > .dp{
     height:40px;
     width:40px;
     position: relative;
@@ -337,8 +340,8 @@ background-color: #ee4646;
     height: 100%;
 }
 
-.right-panel .pages-section .name, .right-panel .friends-section .name{
-    font-size:18px;
+.right-panel .pages-section .name, .right-panel .friends-section .name,.right-panel .group-section .name{
+    font-size:0.9375rem;
     cursor:pointer;
     margin-left:8px;
 }

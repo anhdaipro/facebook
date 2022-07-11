@@ -103,13 +103,7 @@ const Threads=(props)=>{
                     <div data-e2e="inbox-notifications" className="tiktok-vubwh3-DivInboxContainer e32s1fi0">
                         <div className="jsx-585722981 inbox-content-header">
                             <h4 className="jsx-585722981 inbox-content-notification">Thông báo</h4>
-                            <div data-e2e="inbox-bar" className="jsx-585722981 group-wrap">
-                                <span data-e2e="all" className="jsx-585722981 selected">Tất cả</span>
-                                <span data-e2e="likes" className="jsx-585722981">Bày tỏ cảm xúc</span>
-                                <span data-e2e="comments" className="jsx-585722981">Bình luận</span>
-                                <span data-e2e="mentions" className="jsx-585722981">Nhắc đến</span>
-                                <span data-e2e="followers" className="jsx-585722981">Lời mời kết bạn</span>
-                            </div>
+                            
                         </div>
                         <div onScroll={e=>addthread(e)} data-e2e="inbox-list" className="tiktok-o6y5r-DivInboxContentContainer e11z9zg00">
                             {threads.map(thread=>
@@ -117,16 +111,16 @@ const Threads=(props)=>{
                                 <div className="notification-body flex-center">
                                     <div className="rq0escxv l9j0dhe7 du4w35lb e5d9fub0 oeao4gh3 notification-body-avatar">
                                         {thread.members.length>0?<>
-                                        {thread.members.map(member=>
+                                        {thread.members.filter(member=>member.user_id!=user.id).map(member=>
                                         <img alt="Phạm Đại" class="a8c37x1j d2edcug0 sn7ne77z bixrwtb6" referrerpolicy="origin-when-cross-origin" src={originurl+member.avatar}/>
                                         )}</>:
                                         <img alt="Phạm Đại" class="a8c37x1j d2edcug0 sn7ne77z bixrwtb6" referrerpolicy="origin-when-cross-origin" src={originurl+user.avatar}/>}
                                     </div>
                                     <div className="notification-info mr-8">
                                         <div className="mb-8">
-                                        {thread.members.length>0?<>
-                                        {thread.members.map(member=>
-                                        <span>{member.name}</span>)}</>:<span>{user.name}</span>}</div>
+                                        {thread.members.find(member=>member.user_id!=user.id)?<>
+                                        {thread.members.filter(member=>member.user_id!=user.id).map((member,i)=>
+                                        <span>{i<thread.members.filter(member=>member.user_id!=user.id).length-1?`${member.name}, `:member.name}</span>)}</>:<span>{user.name}</span>}</div>
                                         {thread.message_last?
                                         <div data-testid="threadlist-last-message" class="bp9cbjyn j83agx80 m9osqain frgo5egb">
                                             <span class="d2edcug0 hpfvmrgz qv66sw1b c1et5uql lr9zc1uh a8c37x1j fe6kdd0r mau55g9w c8b282yb keod5gw0 nxhoafnm aigsh9s9 d9wwppkn iv3no6db e9vueds3 j5wam9gi b1v8xokw m9osqain" dir="auto">

@@ -80,6 +80,7 @@ const Message=(props)=>{
         })
         setListmessages(datamessage)
     }
+    console.log(listmember)
     const setactionchat=(e,item)=>{
         setAction(item.action)
         if(item.action=='create-group'){

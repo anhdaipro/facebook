@@ -348,10 +348,7 @@ li{
     --fds-spectrum-lemon-tint-70: black;
 
 }
-.tooltip {
-    position: relative;
-    z-index: 1000;
-  }
+
   .p-4{
     padding:4px
   }
