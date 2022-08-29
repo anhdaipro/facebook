@@ -19,6 +19,7 @@ export const listcommenfileposttURL=`${api}/v3/filepost/comment`
 export const actionstoryURL=`${api}/v3/story/action`
 export const listcommentreplyURL=`${api}/v3/comment/replylist`
 export const listfriendURL=`${api}/v3/user/friend/list`
+export const listfriendsuggestURL=`${api}/v3/user/friendsuggested/list`
 export const storyinfouserURL=`${api}/v3/story/info/friends`
 export const liststoryfriendURL=`${api}/v3/story/friends`
 export const actioncommentURL=`${api}/v3/comment`

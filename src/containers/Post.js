@@ -152,7 +152,7 @@ const Postdetail=(props)=>{
                 <div className="l9j0dhe7" style={{position:'relative',height:`500px`,display:'flex',flexWrap: 'wrap' ,flexDirection: 'row'}}>
                     {item.fileupload.map((file,i)=>
                         <Link to={`/photo?id=${file.id}&post_id=${item.id}`}>
-                            <div key={i} className="stjgntxs ni8dbmo4 taijpn5t j83agx80 bp9cbjyn" style={{cursor:'pointer',position:'relative',height:`${item.count_file==1?500:250}px`,width:`${item.count_file==1?500:250}px`}}>                       
+                            <div key={i} className="stjgntxs ni8dbmo4 taijpn5t j83agx80 bp9cbjyn" style={{cursor:'pointer',position:'relative',width:`${item.count_file==1?500:250}px`}}>                       
                                 <div className="" style={{height: '100%',left: '0%',width: '100%'}}>
                                     <img draggable="false" alt="7e00ec5cd27164a1fc2d76e2ea568cbc_tn.jpg" className="datstx6m bixrwtb6 k4urcfbm" referrerpolicy="origin-when-cross-origin" src={`${originurl}${file.file_preview?file.file_preview:file.file}`}/>
                                     {item.count_file>4 && i==3?

@@ -5,16 +5,18 @@ import { headers,expiry,showchat,uploadpost } from '../actions/auth';
 import { connect } from 'react-redux';
 import Navbar from "./Navbar"
 import Sibamenu from './Sibamenu';
-import { listfriendURL,chatgroupURL, originurl ,liststoryfriendURL,listpostURL, conversationsURL, countpostURL} from '../urls';
+import { listfriendURL,chatgroupURL,listfriendsuggestURL, originurl ,liststoryfriendURL,listpostURL, conversationsURL, countpostURL, actionfriendURL} from '../urls';
 import RoomchatCreate from './Roomchat';
 import { Navigate,useNavigate } from 'react-router';
 import { listbackground, timeago } from '../constants';
 import Postdetail from './Post';
 import io from "socket.io-client"
+import { Link } from 'react-router-dom';
 const Homepage=(props)=>{
     const {user, isAuthenticated,post,showchat,datachat,uploadpost}=props
     const navigate =useNavigate()
     const [listfriend,setListfriend]=useState([])
+    const [listfriendsuggest,setListfriendsuggest]=useState([])
     const [listgroup,setListgroup]=useState([])
     const [state,setState]=useState({addpost:false,addfile:false})
     const [liststories,setListstories]=useState([])
@@ -22,6 +24,7 @@ const Homepage=(props)=>{
     const [count,setCount]=useState(0)
     const [loading,setLoading]=useState(false)
     const [actionchat,setActionchat]=useState()
+    const [translate,setTranslate]=useState(0)
     const [onlineUsers, setOnlineUsers] = useState([]);
     const socket =useRef()
     console.log(post)
@@ -48,12 +51,13 @@ const Homepage=(props)=>{
         (async ()=>{
             try{
                 await isAuthenticated
-                const [obj1, obj2,obj3,obj4,obj5] = await axios.all([
+                const [obj1, obj2,obj3,obj4,obj5,obj6] = await axios.all([
                     axios.get(listfriendURL,headers),
                     axios.get(liststoryfriendURL,headers),
                     axios.get(listpostURL,headers),
                     axios.get(countpostURL,headers),
                     axios.get(chatgroupURL,headers),
+                    axios.get(listfriendsuggestURL,headers),
                 ])
                 setListfriend(obj1.data)
                 setListstories(obj2.data)
@@ -64,6 +68,7 @@ const Homepage=(props)=>{
                 setListpost(data)
                 setListgroup(obj5.data)
                 setCount(obj4.data.count)
+                setListfriendsuggest(obj6.data)
             }
             catch{
 
@@ -111,6 +116,24 @@ const Homepage=(props)=>{
             }
         })()  
     } 
+    const setactionfriend=(e,itemchoice)=>{
+        
+        ( async ()=>{
+            e.preventDefault()
+            const data={receiver_id:itemchoice.user_id,action:'friend_invitation'}
+			const res= await axios.post(actionfriendURL,JSON.stringify(data),headers)
+			if(res.data.action.friend_invitation && user.id!=itemchoice.user_id){
+				socket.current.emit("sendNotifi",res.data.listnotifications)
+			}
+			setListfriendsuggest(current=>current.map(item=>{
+                if(item.user_id==itemchoice.user_id){
+                return({...item,friend_invitation:!item.friend_invitation})
+                }
+                return({...item})
+            }))
+        })()
+        
+    }
     return(
     <>
    
@@ -194,7 +217,67 @@ const Homepage=(props)=>{
                             user={user}
                             listfriend={listfriend}
                         />
-                        <img class="j1lvzwm4" height="18" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%2318AFFF'/%3e%3cstop offset='100%25' stop-color='%230062DF'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z'/%3e%3c/g%3e%3c/svg%3e" width="18"/>
+                        {listfriendsuggest.length>0?
+                        <div className="facebook-friends-suggested">
+                            <div className="item-space friends-suggested-header">
+                                <div className="title">Những người bạn có thể biết</div>
+                                <div className="dot-icon">
+                                    <span class="item-center flex three-dot" id="three-dot-btn-click">
+                                        <svg fill="currentColor" viewBox="0 0 20 20" width="1em" height="1em" class=""><g fill-rule="evenodd" transform="translate(-446 -350)"><path d="M458 360a2 2 0 1 1-4 0 2 2 0 0 1 4 0m6 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-12 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0"></path></g></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div className="friends-suggested-wrapper">
+                                <div className="list-item ">
+                                    <ul className="list-friends-suggested" style={{transform:`translate(${translate}px,0px)`,transition: `all 500ms ease 0s`,width:`200%`}}>
+                                        
+                                        
+                                        
+                                        {listfriendsuggest.map(item=>
+                                        <li key={item.user_id} className="friend-suggested" style={{width:`20%`,padding:0}}>
+                                            <Link to="/ss/ss">
+                                                <div className="friend-suggested-container">
+                                                    <div style={{backgroundImage:`url(${originurl}${item.avatar})`,backgroundSize:'contain',backgroundRepeat:'no-repeat',width:'100%',height:`200px`}}></div>
+                                                    <a className="friend-suggested-name">{item.name}</a>
+                                                    {item.mutual_friends?
+                                                    <div className="friend-suggested-avatar">
+                                                        {item.mutual_friends.listfriend.map(avatar=>
+                                                        <img key={avatar} src={originurl+avatar}/>
+                                                        )}
+                                                        
+                                                        <span className="count-friend-same">{item.mutual_friends.count} bạn chung</span>
+                                                    </div>:''}
+                                                    <div onClick={e=>setactionfriend(e,item)} className={`btn-action-friend ${item.friend_invitation?'btn-cancel-add-friend':'btn-add-friend'}`}>
+                                                        <i data-visualcompletion="css-img" class={`gneimcpu ${item.friend_invitation?'':'a3axapz1'} text-primary mr-8`} style={{backgroundImage: `url(${item.friend_invitation?`https://static.xx.fbcdn.net/rsrc.php/v3/yN/r/1i7g2g9A6lZ.png`:`https://static.xx.fbcdn.net/rsrc.php/v3/yN/r/1i7g2g9A6lZ.png`})`, backgroundPosition: `0px -${item.friend_invitation?574:540}px`, backgroundSize: `auto`, width: `16px`, height: `16px`, backgroundRepeat: `no-repeat`, display: `inline-block`}}></i>
+                                                        
+                                                        <span className={`${item.friend_invitation?'text-normal':'text-primary'}`}>{item.friend?'Bạn bè':item.friend_invitation?'Hủy yêu cầu':'Thêm Bạn bè'}</span>
+                                                    </div>
+                                                    
+                                                        <i class="icon modal__close">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.85355339,1.98959236 L8.157,7.29314575 L13.4601551,1.98959236 C13.6337215,1.81602601 13.9031459,1.79674086 14.098014,1.93173691 L14.1672619,1.98959236 C14.362524,2.18485451 14.362524,2.501437 14.1672619,2.69669914 L14.1672619,2.69669914 L8.864,8.00014575 L14.1672619,13.3033009 C14.362524,13.498563 14.362524,13.8151455 14.1672619,14.0104076 C13.9719997,14.2056698 13.6554173,14.2056698 13.4601551,14.0104076 L8.157,8.70714575 L2.85355339,14.0104076 C2.67998704,14.183974 2.41056264,14.2032591 2.2156945,14.0682631 L2.14644661,14.0104076 C1.95118446,13.8151455 1.95118446,13.498563 2.14644661,13.3033009 L2.14644661,13.3033009 L7.45,8.00014575 L2.14644661,2.69669914 C1.95118446,2.501437 1.95118446,2.18485451 2.14644661,1.98959236 C2.34170876,1.79433021 2.65829124,1.79433021 2.85355339,1.98959236 Z"></path></svg>
+                                                        </i>
+                                                    
+                                                </div>
+                                            </Link>
+                                        </li>
+                                        )}
+                                    </ul>
+                                </div>
+                                
+                                <div onClick={()=>setTranslate(translate+400)} className="arrow arrow-left" style={{visibility:`hidden`}}>
+                                    <svg fill="currentColor" viewBox="0 0 20 20" width="24" height="24" class="b6ax4al1 m4pnbp5e somyomsx ahndzqod gnhxmgs4 mwtcrujb mx6bq00g"><path d="M12.2 4.53 6.727 10l5.47 5.47a.75.75 0 0 1-1.061 1.06l-6-6a.751.751 0 0 1 0-1.06l6-6A.75.75 0 1 1 12.2 4.53z"></path></svg>
+                                </div>
+                                    
+                                <div onClick={()=>setTranslate(translate-400)} className="arrow arrow-right" style={{visibility:'visible'}}>
+                                    <svg fill="currentColor" viewBox="0 0 20 20" width="24" height="24" class="b6ax4al1 m4pnbp5e somyomsx ahndzqod gnhxmgs4 mwtcrujb mx6bq00g"><path d="M7.8 4.53 13.273 10 7.8 15.47a.75.75 0 0 0 1.061 1.06l6-6a.751.751 0 0 0 0-1.06l-6-6A.75.75 0 0 0 7.8 4.53z"></path></svg>
+                                </div>
+                            </div>
+                            <div className="item-center fotter-item">
+                                <button className="btn-more text-primary">
+                                    Xem tất cả
+                                </button>
+                            </div>
+                        </div>:''}
                         <div className="list-post">
                             {listpost.map(item=>
                             <Postdetail

@@ -1,4 +1,4 @@
-import axios from 'axios';
+﻿import axios from 'axios';
 import React, {useState, useEffect,useCallback,useRef,useMemo} from 'react'
 import {conversationsURL,listtagURL,listThreadlURL,uploadfileURL,createmessageURL,filemessageURL, originurl, createthreadURL} from "../urls"
 import { connect } from 'react-redux';
@@ -112,11 +112,11 @@ const Chatbody=(props)=>{
             }
             else{
                 console.log(data)
-                const listmessages=[...list_messages,...data.message]
+      
                 setTyping({typing:false})
                 
                 if(thread.id==data.thread_id){
-                    setListmessages(listmessages)
+                    setListmessages(current=>[...current,...data.message])
                 }
             }
             if(scrollRef.current){
@@ -127,7 +127,7 @@ const Chatbody=(props)=>{
         return () => {
             socket.current.disconnect();
           };
-    },[list_messages,thread,scrollRef]);
+    },[thread,scrollRef]);
     
     
     //list thread

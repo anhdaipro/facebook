@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef,useCallback} from 'react'
+﻿import React,{useState,useEffect,useRef,useCallback} from 'react'
 import { connect } from 'react-redux';
 import { expiry, headers, login,logout,showchat } from '../actions/auth';
 import {debounce} from 'lodash';
@@ -46,16 +46,16 @@ const Navbar=(props)=>{
        
         socket.current=io.connect('https://server-socket-123.herokuapp.com')
         socket.current.on('notifi',listusers=>{
-            if(listusers.some(item=>item.receiver_id==user.id && item.notification_type!=5 ||(item.notification_type==5 && state.notifi))){ 
-                setNotify(notify+1)
+            if(listusers.some(item=>item.receiver_id==user.id && (item.notification_type!=5 ||(item.notification_type==5 && state.notifi)))){ 
+                setNotify(current=>(current+1))
             }  
             if(listusers.some(item=>item.receiver_id==user.id && item.notification_type==5)){ 
-                setState({...state,notifi:false})
+                setState(current=>{return{...current,notifi:false}})
             }  
         })
         return () => socket.current.disconnect()
     
-    },[user,notify,state])
+    },[user,state])
     
     useEffect(() => {
         document.addEventListener('click', handleClick)

@@ -361,6 +361,184 @@ height: 100px;
 .tag-post-file{
     border-color: transparent !important; 
 }
+.facebook-friends-suggested{
+    background-color: #fff;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    width:500px
+
+}
+.facebook-friends-suggested .friends-suggested-header{
+    padding:12px 16px 6px
+}
+.facebook-friends-suggested .title{
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color:#65676b
+}
+.facebook-friends-suggested .dot-icon{
+    width:36px;
+    height: 36px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.facebook-friends-suggested .dot-icon:hover{
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+.facebook-friends-suggested .dot-icon span{
+    width:20px;
+    height: 20px;
+}
+.facebook-friends-suggested .friend-suggested-name{
+   font-weight: 600;
+   cursor: pointer;
+   margin: 12px;
+}
+.facebook-friends-suggested .friend-suggested-name:hover{
+    text-decoration: underline;
+}
+.facebook-friends-suggested .friend-suggested-avatar{
+    display: flex;
+    align-items: center;
+    margin: 12px;
+}
+.facebook-friends-suggested .friend-suggested-avatar img{
+    width:16px;
+    height: 16px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.modal__close {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(145, 142, 142, 0.5);
+    border-radius: 50%;
+    text-align: center;
+    right: 12px;
+    top: 12px;
+    color: #fff;
+}
+.friend-suggested-container{
+    position: relative;
+}
+.modal__close.icon {
+    position: absolute;
+    padding: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: color .2s ease-in-out;
+}
+.modal__close:hover{
+    background-color: rgba(114, 111, 111, 0.5);
+    cursor: pointer;
+}
+.btn-action-friend{
+    cursor: pointer;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding:8px;
+    margin: 12px;
+    border-radius: 6px;
+}
+.btn-add-friend{
+    background-color: #e7f3ff;
+}
+.text-normal{
+    color:#65676b 
+}
+.btn-cancel-add-friend{
+background-color: #e4e6eb;
+color:#65676b
+}
+.btn-cancel-add-friend:hover{
+background: #dadbdd;
+}
+.btn-add-friend:hover{
+    background-color: #d3e7fa;
+}
+.text-primary{
+    color:#1877f2
+}
+.a3axapz1 {
+    -webkit-filter: var(--filter-accent);
+}
+.btn-more{
+    border: none;
+    outline: none;
+    font-size: 0.875rem;
+    width: 100%;
+    background-color: transparent;
+}
+.fotter-item{
+    margin: 12px;
+    padding:8px 12px;
+    background-color: transparent;
+    border-radius: 6px
+    ;
+}
+.fotter-item:hover{
+    background-color: #f7f3f3;
+
+}
+.arrow{
+    position:absolute;
+    background: #fff;
+    width: 48px;
+    top:40%;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #65676b;
+    transform: translate(0, -50%)
+}
+.arrow-left{
+    left: 20px;
+}
+.arrow-right{
+    right: 20px;
+}
+.arrow:hover{
+background-color: #f8f8f8;
+cursor: pointer;
+}
+.modal__close svg {
+    width: 16px;
+    height: 24px;
+}
+.facebook-friends-suggested .count-friend-same{
+    color:#65676b;
+    font-size: .9375rem;
+}
+.facebook-friends-suggested .friends-suggested-wrapper{
+    width: 100%;
+    position: relative;
+}
+.facebook-friends-suggested .friends-suggested-wrapper >.list-item{
+    padding:4px 16px;
+    overflow-x: hidden;
+}
+.facebook-friends-suggested .list-friends-suggested{
+    display: flex;
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+.facebook-friends-suggested .friend-suggested{
+    overflow-x: hidden;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px var(--shadow-1);
+    margin-right: 8px;
+    list-style: none;
+    float: left;
+    touch-action: pan-y;
+}
 .d-none{
     display: none;
 }

@@ -107,7 +107,7 @@ const Profile=(props)=>{
 	}
 	const actionprofile=(e)=>{
 		e.preventDefault()
-        let data={member:[profile.user,user.id]}
+        let data={member:[profile.user_id,user.id]}
         showchat(data)
 	}
 	console.log(user)
@@ -121,7 +121,7 @@ const Profile=(props)=>{
 
     const handleClick = (event) => {
         const { target } = event
-        if(actionfriendref.current!=null && user.id!=profile.user){
+        if(actionfriendref.current!=null && user.id!=profile.user_id){
             if (!actionfriendref.current.contains(target)) {
                 setShowaction(false)
             }
@@ -132,10 +132,10 @@ const Profile=(props)=>{
 			try{
 				setAction(action)
 				if(action!="edit"){
-					const form={action:action,receiver_id:profile.user}
+					const form={action:action,receiver_id:profile.user_id}
 					console.log(form)
 					const res= await axios.post(actionfriendURL,JSON.stringify(form),headers)
-					if(res.data.action.friend_invitation){
+					if(res.data.action.friend_invitation && user.id!=profile.user_id){
 						socket.current.emit("sendNotifi",res.data.listnotifications)
 					}
 					setProfile({...profile,...res.data.action})
@@ -233,7 +233,7 @@ const Profile=(props)=>{
                     <div className="profile-button-site">
                         <div className="btn-site-pro flex">
 							<div className="mr-4">
-								{user.id==profile.user?
+								{user.id==profile.user_id?
 								<Link aria-label="Thêm vào tin" className="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz nhd2j8a9 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of n00je7tq arfg74bv qs9ysxi8 k77z8yql abiwlrkh p8dawk7l lzcic4wl" to="/stories/create" role="link" tabindex="0" waprocessedanchor="true">
 									<div className="flex profile-action-story s1i5eluu flex-center ">
 										<div className="rq0escxv l9j0dhe7 du4w35lb d2edcug0 hpfvmrgz bp9cbjyn j83agx80 pfnyh3mw j5wkysh0 hytbnt81">
@@ -245,7 +245,7 @@ const Profile=(props)=>{
 										<div className="n00je7tq arfg74bv qs9ysxi8 k77z8yql i09qtzwb n7fi1qx3 b5wmifdl hzruof5a pmk7jnqg j9ispegn kr520xx4 c5ndavph art1omkt ot9fgl3s rnr61an3" data-visualcompletion="ignore"></div>
 									</div>
 								</Link>:
-								<div ref={actionfriendref} aria-label={user.id==profile.user?'Chỉnh sửa trang cá nhân':''} className="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz nhd2j8a9 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of n00je7tq arfg74bv qs9ysxi8 k77z8yql abiwlrkh p8dawk7l lzcic4wl rq0escxv pq6dq46d cbu4d94t taijpn5t l9j0dhe7 k4urcfbm" role="button" tabindex="0">
+								<div ref={actionfriendref} aria-label={user.id==profile.user_id?'Chỉnh sửa trang cá nhân':''} className="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz nhd2j8a9 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of n00je7tq arfg74bv qs9ysxi8 k77z8yql abiwlrkh p8dawk7l lzcic4wl rq0escxv pq6dq46d cbu4d94t taijpn5t l9j0dhe7 k4urcfbm" role="button" tabindex="0">
 									<div onClick={e=>{
 										if(profile.friend){
 										setShowaction(!showaction)
@@ -253,7 +253,7 @@ const Profile=(props)=>{
 										else{
 											setactionfriend(e,'friend_invitation')
 										}
-									}} className={`l9j0dhe7 du4w35lb j83agx80 pfnyh3mw taijpn5t bp9cbjyn owycx6da btwxx1t3 kt9q3ron ak7q8e6j isp2s0ed ri5dt5u2 rt8b4zig n8ej3o3l agehan2d sk4xxmp2 rq0escxv d1544ag0 tw6a2znq ${user.id!=profile.user?'tdjehn4e':'s1i5eluu'} tv7at329`}>
+									}} className={`l9j0dhe7 du4w35lb j83agx80 pfnyh3mw taijpn5t bp9cbjyn owycx6da btwxx1t3 kt9q3ron ak7q8e6j isp2s0ed ri5dt5u2 rt8b4zig n8ej3o3l agehan2d sk4xxmp2 rq0escxv d1544ag0 tw6a2znq ${user.id!=profile.user_id?'tdjehn4e':'s1i5eluu'} tv7at329`}>
 										<div className="flex flex-center bp9cbjyn j83agx80 taijpn5t c4xchbtz by2jbhx6 a0jftqn4">
 											<div className="rq0escxv l9j0dhe7 du4w35lb d2edcug0 hpfvmrgz bp9cbjyn j83agx80 pfnyh3mw j5wkysh0 hytbnt81">
 												<img className="hu5pjgll lzf7d6o1" src={profile.friend?'https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/5nzjDogBZbf.png':profile.friend_invitation?'https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/Qg9sXPTnmFb.png':'https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/Mlt-gKEc17f.png'} alt="" height="16" width="16"/>
@@ -292,13 +292,13 @@ const Profile=(props)=>{
 								}
 							</div>
                             <div onClick={(e)=>actionprofile(e)} aria-label="Chỉnh sửa trang cá nhân" className="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz nhd2j8a9 p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso i1ao9s8h esuyzwwr f1sip0of n00je7tq arfg74bv qs9ysxi8 k77z8yql abiwlrkh p8dawk7l lzcic4wl rq0escxv pq6dq46d cbu4d94t taijpn5t l9j0dhe7 k4urcfbm" role="button" tabindex="0">
-								<div className={`l9j0dhe7 du4w35lb j83agx80 pfnyh3mw taijpn5t bp9cbjyn owycx6da btwxx1t3 kt9q3ron ak7q8e6j isp2s0ed ri5dt5u2 rt8b4zig n8ej3o3l agehan2d sk4xxmp2 rq0escxv d1544ag0 tw6a2znq ${user.id==profile.user?'tdjehn4e':'s1i5eluu'} tv7at329`}>
+								<div className={`l9j0dhe7 du4w35lb j83agx80 pfnyh3mw taijpn5t bp9cbjyn owycx6da btwxx1t3 kt9q3ron ak7q8e6j isp2s0ed ri5dt5u2 rt8b4zig n8ej3o3l agehan2d sk4xxmp2 rq0escxv d1544ag0 tw6a2znq ${user.id==profile.user_id?'tdjehn4e':'s1i5eluu'} tv7at329`}>
 									<div className="flex flex-center bp9cbjyn j83agx80 taijpn5t c4xchbtz by2jbhx6 a0jftqn4">
 										<div className="rq0escxv l9j0dhe7 du4w35lb d2edcug0 hpfvmrgz bp9cbjyn j83agx80 pfnyh3mw j5wkysh0 hytbnt81">
-											<img className={`hu5pjgll ${user.id!=profile.user?'eb18blue':'lzf7d6o1'}`} src={user.id==profile.user?'https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/OR6SzrfoMFg.png':'https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/111xWLHJ_6m.png'} alt="" height="16" width="16"/>
+											<img className={`hu5pjgll ${user.id!=profile.user_id?'eb18blue':'lzf7d6o1'}`} src={user.id==profile.user_id?'https://static.xx.fbcdn.net/rsrc.php/v3/yW/r/OR6SzrfoMFg.png':'https://static.xx.fbcdn.net/rsrc.php/v3/yg/r/111xWLHJ_6m.png'} alt="" height="16" width="16"/>
 										</div>
 										<div className="rq0escxv l9j0dhe7 du4w35lb d2edcug0 hpfvmrgz bp9cbjyn j83agx80 pfnyh3mw j5wkysh0 hytbnt81">
-											<span className={`a8c37x1j ${user.id!=profile.user?'bwm1u5wc':'a57itxjd'} ni8dbmo4 stjgntxs l9j0dhe7 ltmttdrg g0qnabr5`}>{user.id==profile.user?'Chỉnh sửa trang cá nhân':'Nhắn tin'}</span>
+											<span className={`a8c37x1j ${user.id!=profile.user_id?'bwm1u5wc':'a57itxjd'} ni8dbmo4 stjgntxs l9j0dhe7 ltmttdrg g0qnabr5`}>{user.id==profile.user_id?'Chỉnh sửa trang cá nhân':'Nhắn tin'}</span>
 										</div>
 									</div>
 									<div className="n00je7tq arfg74bv qs9ysxi8 k77z8yql i09qtzwb n7fi1qx3 b5wmifdl hzruof5a pmk7jnqg j9ispegn kr520xx4 c5ndavph art1omkt ot9fgl3s rnr61an3" data-visualcompletion="ignore"></div>

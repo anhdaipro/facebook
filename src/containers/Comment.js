@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useRef,useCallback} from 'react'
+﻿import React,{useState,useEffect,useRef,useCallback} from 'react'
 import axios from "axios"
 import { headers,expiry,updatenotify,showreport } from "../actions/auth";
 import { actioncommentURL, actionfilepostURL, actionpostURL, listcommenfileposttURL, listcommentURL, originurl } from "../urls";
@@ -50,11 +50,11 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
         if(videoref.current){
             const timer=setTimeout(()=>{
             videoref.current.volume=volume
-            setTime({seconds:videoref.current.currentTime % 60,minutes:Math.floor((videoref.current.currentTime) / 60) % 60})
-            },1000)
+            setTime(()=>{return{seconds:videoref.current.currentTime % 60,minutes:Math.floor((videoref.current.currentTime) / 60) % 60}})
+            },200)
             return ()=>clearTimeout(timer)
         }
-    },[time,volume,videoref])
+    },[volume,videoref,time])
 
     useEffect(()=>{
         if(report && report.type=='comment' && report.id==comment.id){
@@ -78,7 +78,7 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
             }
         })()
         
-    },[comment])
+    },[comment?comment.id:comment])
 
     const setemojicomment=(e,emoji)=>{
         (async()=>{
@@ -149,7 +149,7 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
     const settimevideo=(e)=>{
        e.stopPropagation()
         const rects = e.currentTarget.getBoundingClientRect();
-        const x = e.clientX - rects.left-4;
+        const x = e.clientX - rects.left;
         const times=(x/rects.width)*comment.fileupload.duration
         console.log(x)
         videoref.current.currentTime=times
