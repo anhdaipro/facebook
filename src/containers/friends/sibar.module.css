@@ -1,0 +1,41 @@
+.header{
+  display:flex;
+  justify-content: space-between;  
+  padding:12px;
+  margin-bottom: 12px;
+}
+.title{
+    font-size: 1.5rem;
+    color:#050505;
+    font-weight: 600;
+}
+.list_item{
+padding:0 12px
+}
+.item{
+display: flex;
+align-items: center;
+padding:8px;
+cursor: pointer;
+border-radius: 6px;
+justify-content: space-between;
+}
+.item:hover{
+    background-color: #f1f1f3;
+}
+.icon{
+width: 36px;
+height: 36px;
+display: flex;
+justify-content: center;
+border-radius: 50%;
+align-items: center;
+background: #e4e6eb;
+margin-right: 8px;
+}
+.name{
+color:#050505;
+font-size: 1.0625rem;
+word-wrap: break-word;
+font-style: 500;
+}

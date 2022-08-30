@@ -2,8 +2,9 @@
 .container{
     background:#eee;
     display:flex;
-    padding-top: 50px;
+    padding-top: 56px;
     width: 100%;
+    min-height: calc(100vh - 56px);
 }
 
 .container .left-panel, .container .right-panel{
@@ -446,15 +447,20 @@ height: 100px;
 }
 .btn-add-friend{
     background-color: #e7f3ff;
+    padding:8px;
 }
 .text-normal{
     color:#65676b 
 }
-.btn-cancel-add-friend{
+.sibar-wrapper{
+    width:300px;
+    background-color: #fff;
+}
+.btn-second{
 background-color: #e4e6eb;
 color:#65676b
 }
-.btn-cancel-add-friend:hover{
+.btn-second:hover{
 background: #dadbdd;
 }
 .btn-add-friend:hover{

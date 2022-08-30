@@ -23,6 +23,10 @@ import Storyuser from './containers/Storyuser'
 import File from './containers/File'
 import Mediathread from './containers/Mediathread'
 import Filethread from './containers/Filethread'
+import Homefriend from './containers/friends/Home'
+import Listfriend from './containers/friends/List'
+import InvitationFriend from './containers/friends/Requests'
+import Suggestions from './containers/friends/Suggestions'
 const Appstore=()=>{ 
   return(
         <Provider store={store}>
@@ -31,6 +35,10 @@ const Appstore=()=>{
                                 <Routes>
                                         <Route exact path="/" element={<Homepage/>}/>
                                         <Route exact path="photo" element={<File/>}/>
+                                        <Route exact path="/friend" element={<Homefriend/>}/>
+                                        <Route exact path="/friend/suggestions" element={<Suggestions/>}/>
+                                        <Route exact path="/friend/requests" element={<InvitationFriend/>}/>
+                                        <Route exact path="/friend/list" element={<Listfriend/>}/>
                                         <Route exact path="/:username" element={<Profile/>}/>
                                         <Route exact path="/stories" element={<Story/>}/>
                                         <Route exact path="/message_media" element={<Mediathread/>}/>
