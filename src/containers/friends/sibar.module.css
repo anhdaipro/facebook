@@ -33,6 +33,14 @@ align-items: center;
 background: #e4e6eb;
 margin-right: 8px;
 }
+.info{
+  font-size:12px;
+  color:var(--secondary-text)
+}
+.sibar_header{
+margin-bottom: 0;
+padding: 0 12px;
+}
 .name{
 color:#050505;
 font-size: 1.0625rem;

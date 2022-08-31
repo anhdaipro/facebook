@@ -3,12 +3,12 @@ import { originweb } from "../../constants"
 import styles from "./sibar.module.css"
 
 const listitem=[
-    {name:'Trang chủ',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yB/r/zbB3v_l5XEp.png',position:`-126px -132px`,url:`/friend`},
-    {name:'Lời mời kết bạn',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/258MsptFNEE.png',position:`0px -746px`,option:true,url:`/friend/requests`},
-    {name:'Gợi ý',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/258MsptFNEE.png',position:`0px -725px`,option:true,url:`/friend/suggestions`},
-    {name:'Tất cả bạn bè',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/RflY1jeNSn4.png',position:`0px -50px`,option:true,url:`/friend/list`},
-    {name:'Sinh nhật',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/258MsptFNEE.png',position:`0px -767px`,url:`/friend/birthdays`},
-    {name:'Danh sách tùy chỉnh',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/RflY1jeNSn4.png',position:`0px -50px`,option:true,url:`/friend/friendlist`},
+    {name:'Trang chủ',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yB/r/zbB3v_l5XEp.png',position:`-126px -132px`,url:`/friends`},
+    {name:'Lời mời kết bạn',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/258MsptFNEE.png',position:`0px -746px`,option:true,url:`/friends/requests`},
+    {name:'Gợi ý',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/258MsptFNEE.png',position:`0px -725px`,option:true,url:`/friends/suggestions`},
+    {name:'Tất cả bạn bè',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/RflY1jeNSn4.png',position:`0px -50px`,option:true,url:`/friends/list`},
+    {name:'Sinh nhật',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/258MsptFNEE.png',position:`0px -767px`,url:`/friends/birthdays`},
+    {name:'Danh sách tùy chỉnh',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/RflY1jeNSn4.png',position:`0px -50px`,option:true,url:`/friends/friendlist`},
     
     ]
 const Sibar=()=>{

@@ -6,15 +6,11 @@ import { headers,expiry,updatenotify,showchat } from '../actions/auth';
 import {uploadfileURL,originurl,uploadstoryURL,profileURL,actionfriendURL} from "../urls"
 import {connect} from "react-redux"
 import { useNavigate,useParams,Link } from "react-router-dom"
-import { dataURLtoFile, number } from "../constants";
+import { dataURLtoFile, number,actionfriend } from "../constants";
 import Draggable from "../hocs/useDraggable";
 import * as htmlToImage from 'html-to-image';
 import io from "socket.io-client"
-const actionfriend=[{name:'Yêu thích',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/oIIZ26adGMr.png',action:'favorite'},
-{name:'Chỉnh sửa danh sách bạn bè',src:'https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/y302a2iLPfV.png',action:'edit'},
-{name:'Bỏ theo dõi',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/bnvx9uLOEsq.png',action:'unfollow'},
-{name:'Hủy kết bạn',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/ly3Zmqiw05t.png")',position: '0px -105px',action:'unfriend'}
-]
+
 const Profile=(props)=>{
     const {user,isAuthenticated,showchat}=props
     const {username}=useParams()

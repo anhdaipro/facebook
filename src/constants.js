@@ -128,7 +128,11 @@ export function validatePassword(value) {
   }
   return errors;
 }
-
+export const actionfriend=[{name:'Yêu thích',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yU/r/oIIZ26adGMr.png',action:'favorite'},
+{name:'Chỉnh sửa danh sách bạn bè',src:'https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/y302a2iLPfV.png',action:'edit'},
+{name:'Bỏ theo dõi',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/bnvx9uLOEsq.png',action:'unfollow'},
+{name:'Hủy kết bạn',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yI/r/ly3Zmqiw05t.png")',position: '0px -105px',action:'unfriend'}
+]
 export const originweb =window.location.origin
 export function isVietnamesePhoneNumber(number) {
   return /([\+84 |84 |0|+84|84|(+84)|(+84 )]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b/.test(number);

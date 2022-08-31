@@ -35,10 +35,10 @@ const Appstore=()=>{
                                 <Routes>
                                         <Route exact path="/" element={<Homepage/>}/>
                                         <Route exact path="photo" element={<File/>}/>
-                                        <Route exact path="/friend" element={<Homefriend/>}/>
-                                        <Route exact path="/friend/suggestions" element={<Suggestions/>}/>
-                                        <Route exact path="/friend/requests" element={<InvitationFriend/>}/>
-                                        <Route exact path="/friend/list" element={<Listfriend/>}/>
+                                        <Route exact path="/friends" element={<Homefriend/>}/>
+                                        <Route exact path="/friends/suggestions" element={<Suggestions/>}/>
+                                        <Route exact path="/friends/requests" element={<InvitationFriend/>}/>
+                                        <Route exact path="/friends/list" element={<Listfriend/>}/>
                                         <Route exact path="/:username" element={<Profile/>}/>
                                         <Route exact path="/stories" element={<Story/>}/>
                                         <Route exact path="/message_media" element={<Mediathread/>}/>

@@ -292,6 +292,13 @@ align-items: center;
 align-items: center;
 justify-content: center;
 }
+.info-more{
+  font-size:12px;
+  color:var(--secondary-text)
+}
+.my-5{
+margin: 5px 0;
+}
 li{
     list-style: none;
 }
@@ -1264,6 +1271,12 @@ opacity: 0.8;
   cursor: pointer;
   font-size: 16px;
   padding: 0;
+}
+.info-more{
+  color:var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 700;
+  word-wrap: break-word;
 }
 .button--link:hover{
   color: #0046ab;
