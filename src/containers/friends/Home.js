@@ -26,6 +26,7 @@ const Homefriend=()=>{
             <div class="container">
                 <Sibar/>
                 <div className={styles.body_container}>
+                    {listinvitation.length>0?
                     <div className={styles.wrapper}>
                         <div className={styles.header}>
                             <h1 className={styles.title}>Lời mời kết bạn</h1>
@@ -56,7 +57,8 @@ const Homefriend=()=>{
                             </div>
                             )}
                         </div>
-                    </div>
+                    </div>:''}
+                    {listfriendsuggest.length>0?
                     <div className={styles.wrapper}>
                         <div className={styles.header}>
                             <h1 className={styles.title}>Những người bạn có thể biết</h1>
@@ -88,7 +90,7 @@ const Homefriend=()=>{
                             </div>
                             )}
                         </div>
-                    </div>
+                    </div>:''}
                 </div>
             </div>
         </div>

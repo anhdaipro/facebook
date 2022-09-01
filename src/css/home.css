@@ -504,6 +504,8 @@ height: 100px;
     align-items: center;
     padding:8px;
     margin: 12px;
+    box-sizing:border-box;
+    height: 36px;
     border-radius: 6px;
 }
 .btn-add-friend{
@@ -519,7 +521,8 @@ height: 100px;
 }
 .btn-second{
 background-color: #e4e6eb;
-color:#65676b
+color:#65676b;
+height: 36px;
 }
 .btn-second:hover{
 background: #dadbdd;

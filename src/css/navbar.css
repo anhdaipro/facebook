@@ -1,12 +1,12 @@
 .header {
   
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 56px;
     background: white;
     top: 0px;
     left: 0px;
-    z-index: 0;
+    z-index: 1;
     font-family: verdana;
     display: flex;
     box-shadow: 0 1px 5px rgb(194, 193, 193);
@@ -195,6 +195,15 @@ margin-right: 4px;
     position: fixed;
     top:0;
     padding: 8px
+}
+.position{
+    width: 100%;
+    height: 56px;
+    background: white;
+    z-index: 0;
+    font-family: verdana;
+    display: flex;
+    box-shadow: 0 1px 5px rgb(194 193 193);
 }
 .navbar__link, .navbar__links {
     display: flex;

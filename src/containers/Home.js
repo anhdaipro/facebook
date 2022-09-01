@@ -239,8 +239,8 @@ const Homepage=(props)=>{
                                         
                                         
                                         {listfriendsuggest.map(item=>
-                                        <li key={item.user_id} className="friend-suggested" style={{width:`25%`,padding:0}}>
-                                            <Link to="/ss/ss">
+                                        <li key={item.user_id} className="friend-suggested" style={{width:`200px`,padding:0}}>
+                                            <Link to={item.username}>
                                                 <div className="friend-suggested-container">
                                                     <div style={{backgroundImage:`url(${originurl}${item.avatar})`,backgroundSize:'contain',backgroundRepeat:'no-repeat',width:'200px',height:`200px`}}></div>
                                                     <a className="friend-suggested-name">{item.name}</a>
@@ -268,17 +268,17 @@ const Homepage=(props)=>{
                                         )}
                                     </ul>
                                 </div>
-                                
+                                {listfriendsuggest.length>2?<>
                                 <div onClick={()=>setTranslate(translate+400)} className="arrow arrow-left" style={{visibility:`hidden`}}>
                                     <svg fill="currentColor" viewBox="0 0 20 20" width="24" height="24" class="b6ax4al1 m4pnbp5e somyomsx ahndzqod gnhxmgs4 mwtcrujb mx6bq00g"><path d="M12.2 4.53 6.727 10l5.47 5.47a.75.75 0 0 1-1.061 1.06l-6-6a.751.751 0 0 1 0-1.06l6-6A.75.75 0 1 1 12.2 4.53z"></path></svg>
                                 </div>
                                     
                                 <div onClick={()=>setTranslate(translate-400)} className="arrow arrow-right" style={{visibility:'visible'}}>
                                     <svg fill="currentColor" viewBox="0 0 20 20" width="24" height="24" class="b6ax4al1 m4pnbp5e somyomsx ahndzqod gnhxmgs4 mwtcrujb mx6bq00g"><path d="M7.8 4.53 13.273 10 7.8 15.47a.75.75 0 0 0 1.061 1.06l6-6a.751.751 0 0 0 0-1.06l-6-6A.75.75 0 0 0 7.8 4.53z"></path></svg>
-                                </div>
+                                </div></>:''}
                             </div>
                             <div className="item-center fotter-item">
-                                <button className="btn-more text-primary">
+                                <button onClick={e=>navigate('/friends')} className="btn-more text-primary">
                                     Xem tất cả
                                 </button>
                             </div>

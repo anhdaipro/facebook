@@ -336,7 +336,10 @@ const Story=(props)=>{
 
     return(
         <div id="main">
-            <Navbar/>
+            <Navbar
+            hidesearch={true}
+            className={'position'}
+            />
             {user?
             <div className="i09qtzwb j83agx80 n7fi1qx3 pmk7jnqg j9ispegn kr520xx4">
                 <div className="k4urcfbm jgljxmt5 j83agx80">

@@ -1439,13 +1439,23 @@ flex-direction: column;
   margin-right: 1rem;
 }
 .mr-1_2{
-  margin-right: 1rem;
+  margin-right: .5rem;
 }
 .mb-1{
   margin-bottom: 1rem;
 }
 .ml-2{
   margin-left: 2rem;
+}
+.text-blue{
+cursor: pointer;
+font-size:.8125rem;
+color: var(--blue-link);
+}
+.font-l{
+font-size: 1rem;
+font-weight: 600;
+color:#333
 }
 .mr-2{
   margin-right: 2rem;
@@ -1471,8 +1481,11 @@ flex-direction: column;
 .my-1_2{
   margin: 8px 0;
 }
+.wrapper-l{
+  width:360px !important
+}
 .m-1{
-  margin: 1;
+  margin: 1rem;
 }
 .pl-1{
   padding-left: 1rem;
