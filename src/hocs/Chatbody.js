@@ -97,7 +97,7 @@ const Chatbody=(props)=>{
 
     
     useEffect(() => {
-        socket.current=io.connect('https://server-socket-123.herokuapp.com')
+        socket.current=io.connect('https://web-production-e133.up.railway.app')
         
         socket.current.on('message',data=>{
             console.log(data)

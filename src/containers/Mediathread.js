@@ -29,7 +29,7 @@ const Mediathread=(props)=>{
     const parent=useRef()
     const navigate=useNavigate()
     useEffect(() => { 
-        socket.current=io.connect('https://server-socket-123.herokuapp.com')
+        socket.current=io.connect('https://web-production-e133.up.railway.app')
         socket.current.on("getUsers", (users) => {
             setOnlineUsers(
              users

@@ -45,7 +45,7 @@ const Navbar=(props)=>{
     console.log(isAuthenticated)
     useEffect(() => { 
        
-        socket.current=io.connect('https://server-socket-123.herokuapp.com')
+        socket.current=io.connect('https://web-production-e133.up.railway.app')
         socket.current.on('notifi',listusers=>{
             if(listusers.some(item=>item.receiver_id==user.id && (item.notification_type!=5 ||(item.notification_type==5 && state.notifi)))){ 
                 setNotify(current=>(current+1))

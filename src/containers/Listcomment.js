@@ -31,7 +31,7 @@ const Listcomment=(props)=>{
     );
     
     useEffect(() => { 
-        socket.current=io.connect('https://server-socket-123.herokuapp.com')
+        socket.current=io.connect('https://web-production-e133.up.railway.app')
         socket.current.on("comment", (data) => {
             if(data.id && data.id==item.id){
             setListcomment(data.listcomment)

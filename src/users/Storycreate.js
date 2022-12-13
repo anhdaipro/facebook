@@ -43,7 +43,7 @@ const Storycreate=(props)=>{
     const [styletext,setStyletext]=useState({id:0,name:"Gọn Gàng",color:"rgb(255, 255, 255)",font:"Facebook Stencil Viet App",src:'https://res.cloudinary.com/dltj2mkhl/image/upload/v1655089937/51653719_241165293466285_9014132538842546176_n_xggt4d.jpg'})
     const [offset, setOffset] = useState({ dx: 0, dy: 0,scale:1,rotate:0 });
     useEffect(() => { 
-        socket.current=io.connect('https://server-socket-123.herokuapp.com')
+        socket.current=io.connect('https://web-production-e133.up.railway.app')
         
         return () => socket.current.disconnect()
     },[count_notify_unseen,state,file])
