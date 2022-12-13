@@ -45,7 +45,7 @@ const Formsignup=(props)=>{
         }
         setShow({...show,[name]:false}) 
     }
-    const {first_name,last_name,email,password,phone}=formData
+    const {first_name,last_name,email,password,phone,code}=formData
     const submit=(e)=>{
         if(validatEemail(email) || isVietnamesePhoneNumber(email)){
             axios.post(checkuserURL,JSON.stringify({email:email}),headers)
