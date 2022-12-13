@@ -70,7 +70,7 @@ const Detailgroup=(props)=>{
                     <div className="box-container t1fg2s7t poaa5t79">
                         <div className="flex avatar-wrapper flex-center">
                             <div className={`${styles.avatar} mr-1_2`}>
-                                <img className="avatar__image" src={originurl+user.avatar}/>
+                                <img className="avatar__image" src={user.avatar}/>
                             </div>
                             <div className={`${styles.search} flex-1`}>
                                 <span>Bạn viết gì đi...</span>

@@ -50,7 +50,7 @@ const Notify=(props)=>{
             <div className="notification-container notification-navbar">
                 <div className="notification-body flex-center">
                     <div className="notification-body-avatar">
-                        <svg aria-hidden="true" class="pzggbiyp" data-visualcompletion="ignore-dynamic" role="none" style={{height: '56px', width: '56px'}}><mask id="jsc_c_8e"><circle cx="28" cy="28" fill="white" r="28"></circle><circle cx="48" cy="48" data-visualcompletion="ignore" fill="black" r="9"></circle></mask><g mask="url(#jsc_c_8e)"><image x="0" y="0" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xlinkHref={originurl+item.user.avatar} style={{height: '56px', width: '56px'}}></image><circle class="mlqo0dh0 georvekb s6kb5r3f" cx="28" cy="28" r="28"></circle></g>
+                        <svg aria-hidden="true" class="pzggbiyp" data-visualcompletion="ignore-dynamic" role="none" style={{height: '56px', width: '56px'}}><mask id="jsc_c_8e"><circle cx="28" cy="28" fill="white" r="28"></circle><circle cx="48" cy="48" data-visualcompletion="ignore" fill="black" r="9"></circle></mask><g mask="url(#jsc_c_8e)"><image x="0" y="0" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xlinkHref={item.user.avatar} style={{height: '56px', width: '56px'}}></image><circle class="mlqo0dh0 georvekb s6kb5r3f" cx="28" cy="28" r="28"></circle></g>
                         </svg>
                         <div class="notification-body-icon" style={{backgroundColor: 'transparent'}}>
                             {item.notification_type==1?

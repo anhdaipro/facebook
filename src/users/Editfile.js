@@ -444,7 +444,7 @@ const Fileedit=(props)=>{
                                                             <span role="gridcell">
                                                                 <div class="bp9cbjyn beltcj47 p86d2i9g aot14ch1 kzx2olss pq6dq46d rv4hoivh h4z51re5 oo1teu6h e5nlhep0 ecm0bbzt">
                                                                     <div aria-hidden="true" class="oi9244e8">
-                                                                        <img height='40' width='40' class="hu5pjgll op6gxeva" src={originurl+item.avatar} alt="" height="20" width="20"/>
+                                                                        <img height='40' width='40' class="hu5pjgll op6gxeva" src={item.avatar} alt="" height="20" width="20"/>
                                                                     </div>
                                                                     <div aria-hidden="true" class="oi9244e8">
                                                                         <span class="d2edcug0 hpfvmrgz qv66sw1b c1et5uql lr9zc1uh a8c37x1j fe6kdd0r mau55g9w c8b282yb keod5gw0 nxhoafnm aigsh9s9 d9wwppkn mdeji52x e9vueds3 j5wam9gi lrazzd5p q66pz984" dir="auto">{item.name}</span>
@@ -639,7 +639,7 @@ const Fileedit=(props)=>{
                                                     {listuser.map((item,i)=>
                                                     <li onClick={(e)=>setlisttags(e,item)} key={i} className="facebook-tag">
                                                         <div className="facebook-tag-avatar">
-                                                            <img width='36' src={originurl+item.avatar}/>
+                                                            <img width='36' src={item.avatar}/>
                                                         </div>
                                                         <div>{item.name}</div>
                                                     </li>

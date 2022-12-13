@@ -36,7 +36,7 @@ const Postdetail=(props)=>{
             <div className="post-hader flex flex-center">
                 <a href="#">
                     <div className="profile-images">
-                        <img src={originurl+item.user.avatar}/>
+                        <img src={item.user.avatar}/>
                         <div className={`${onlineUsers.some(user=>user.userId==item.user.id) || item.user.id==user.id?'online-icon':'offline_icon'}`}></div>
                     </div>
                 </a>
@@ -46,7 +46,7 @@ const Postdetail=(props)=>{
                         <a href="#" id="Profile_Name">{item.user.name}</a>
                         <div className="profile-name-hover">
                             <a href="#"><div className="profile-images">
-                                <img src={originurl+item.user.avatar}/>
+                                <img src={item.user.avatar}/>
                                 <div className={`${onlineUsers.some(user=>user.userId==item.user.id)?'online-icon':'offline_icon'}`}></div>
                             </div></a>
 
@@ -154,7 +154,7 @@ const Postdetail=(props)=>{
                         <Link to={`/photo?id=${file.id}&post_id=${item.id}`}>
                             <div key={i} className="stjgntxs ni8dbmo4 taijpn5t j83agx80 bp9cbjyn" style={{cursor:'pointer',position:'relative',width:`${item.count_file==1?500:250}px`}}>                       
                                 <div className="" style={{height: '100%',left: '0%',width: '100%'}}>
-                                    <img draggable="false" alt="7e00ec5cd27164a1fc2d76e2ea568cbc_tn.jpg" className="datstx6m bixrwtb6 k4urcfbm" referrerpolicy="origin-when-cross-origin" src={`${originurl}${file.file_preview?file.file_preview:file.file}`}/>
+                                    <img draggable="false" alt="7e00ec5cd27164a1fc2d76e2ea568cbc_tn.jpg" className="datstx6m bixrwtb6 k4urcfbm" referrerpolicy="origin-when-cross-origin" src={`${file.file_preview?file.file_preview:file.file}`}/>
                                     {item.count_file>4 && i==3?
                                         <div className="kr520xx4 j9ispegn pmk7jnqg taijpn5t cbu4d94t n7fi1qx3 j83agx80 i09qtzwb sx5rzos5 bp9cbjyn">
                                         <div className="oqcyycmt lrazzd5p mhxlubs3 qrtewk5h">+{item.count_file-4}</div>

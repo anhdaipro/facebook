@@ -24,7 +24,7 @@ const Sibamenu=(props)=>{
             {user!=null?
             <li>
                 <span class="profile">
-                    <img width='100%' src={originurl+user.avatar}/>
+                    <img width='100%' src={user.avatar}/>
                 </span>
                 <p>{user.name}</p>
             </li>:''}

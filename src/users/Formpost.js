@@ -58,7 +58,7 @@ const Formpost=(props)=>{
             }
             if(datapost.fileupload){
                 const listfilepost=datapost.fileupload.map(item=>{
-                    return({...item,pre_note:item.note,listimages:[],tags:JSON.parse(item.tags),media:originurl+item.media,media_preview:item.media_preview?originurl+item.media_preview:null})
+                    return({...item,pre_note:item.note,listimages:[],tags:JSON.parse(item.tags),media:item.media,media_preview:item.media_preview?item.media_preview:null})
                 })
                 setListfile(listfilepost)
             }
@@ -308,7 +308,7 @@ const Formpost=(props)=>{
                                     <div className="g9en0fbe">
                                         <a aria-label="Dòng thời gian của Nguyễn Trãi" className="oajrlxb2 gs1a9yip g5ia77u1 mtkw9kbi tlpljxtp qensuy8j ppp5ayq2 goun2846 ccm00jje s44p3ltw mk2mc5f4 rt8b4zig n8ej3o3l agehan2d sk4xxmp2 rq0escxv nhd2j8a9 mg4g778l pfnyh3mw p7hjln8o kvgmc6g5 cxmmr5t8 oygrvhab hcukyx3x tgvbjcpo hpfvmrgz jb3vyjys rz4wbd8a qt6c0cv9 a8nywdso l9j0dhe7 i1ao9s8h esuyzwwr f1sip0of du4w35lb n00je7tq arfg74bv qs9ysxi8 k77z8yql btwxx1t3 abiwlrkh p8dawk7l lzcic4wl oo9gr5id q9uorilb" href="https://www.facebook.com/profile.php?id=100081673677422&amp;__tn__=%3C" role="link" tabindex="0">
                                             <div className="q9uorilb l9j0dhe7 pzggbiyp du4w35lb">
-                                                <svg aria-hidden="true" className="pzggbiyp" data-visualcompletion="ignore-dynamic" role="none" style={{height: '40px', width: '40px',borderRadius:'50%',border:'1px solid gainsboro'}}><mask id="jsc_c_59"><circle cx="20" cy="20" fill="white" r="20"></circle></mask><g mask="url(#jsc_c_59)"><image x="0" y="0" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xlinkHref={originurl+user.avatar} style={{height: '40px', width: '40px',borderRadius:'50%',border:'1px solid gainsboro'}}></image></g></svg>
+                                                <svg aria-hidden="true" className="pzggbiyp" data-visualcompletion="ignore-dynamic" role="none" style={{height: '40px', width: '40px',borderRadius:'50%',border:'1px solid gainsboro'}}><mask id="jsc_c_59"><circle cx="20" cy="20" fill="white" r="20"></circle></mask><g mask="url(#jsc_c_59)"><image x="0" y="0" height="100%" preserveAspectRatio="xMidYMid slice" width="100%" xlinkHref={user.avatar} style={{height: '40px', width: '40px',borderRadius:'50%',border:'1px solid gainsboro'}}></image></g></svg>
                                                 <div className="i09qtzwb n7fi1qx3 b5wmifdl hzruof5a pmk7jnqg j9ispegn kr520xx4 c5ndavph art1omkt ot9fgl3s s45kfl79 emlxlaya bkmhp75w spb7xbtv" data-visualcompletion="ignore"></div>
                                             </div>
                                         </a>

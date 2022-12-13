@@ -418,7 +418,7 @@ const Listcomment=(props)=>{
                 <div className="flex" style={{width:'100%'}}>
                     <a href="#">
                         <div className="profile-images comment-PI">
-                            <img src={originurl+user.avatar}/>
+                            <img src={user.avatar}/>
                             <div className={`online-icon o_F-CPI`}></div>
                         </div>
                     </a>

@@ -8,7 +8,7 @@ const Postcreate=(props)=>{
         <div class="post create">
             <div class="post-top">
                 <div class="dp">
-                    <img src={originurl+ user.avatar} alt=""/>
+                    <img src={ user.avatar} alt=""/>
                 </div>
                 <div className="div-input" onClick={(e)=>setstate({addpost:true})}>
                     <input type="text" placeholder={`What's on your mind, ${user.name}?`} />

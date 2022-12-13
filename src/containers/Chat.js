@@ -166,7 +166,7 @@ const Message=(props)=>{
             <div className="j83agx80 bp9cbjyn taijpn5t tmrshh9y m7zwrmfr oud54xpy" style={{transform: `translateY(-58px)`}}>
                 <div onMouseLeave={e=>setState({...state,showicon:false})} onMouseEnter={e=>setState({...state,showicon:true})} className="s45kfl79 emlxlaya bkmhp75w spb7xbtv akv41dx8 eb3gnj61 afxn4irw il7rb8sk j1l0snac h9pa7xm5 bnyrfe0q mqussk9c">
                     <div onClick={e=>setState({...state,zoomin:false})} className="l9j0dhe7 nhd2j8a9" style={{height: '48px', width: '48px'}}>
-                        <img className="k4urcfbm datstx6m s45kfl79 emlxlaya bkmhp75w spb7xbtv pzggbiyp bixrwtb6" src={`${originurl}${direact?direact.avatar:user.avatar}`} alt=""/>
+                        <img className="k4urcfbm datstx6m s45kfl79 emlxlaya bkmhp75w spb7xbtv pzggbiyp bixrwtb6" src={`${direact?direact.avatar:user.avatar}`} alt=""/>
                         <div aria-hidden="true" className="b5wmifdl qpbg1qsm"></div>
                         <div className="pmk7jnqg" style={{bottom: '7px', right: '7px', transform: `translate(50%, 50%)`}}></div>
                         <div className="mkhogb32 pmk7jnqg jllm4f4h c9rrlmt1 t6na6p9t iruzoqzv n8v90iwk qx7ju95k m8of71z0 i09qtzwb n7fi1qx3 s45kfl79 emlxlaya bkmhp75w spb7xbtv"></div>
@@ -201,7 +201,7 @@ const Message=(props)=>{
                             e.stopPropagation()
                             setShowaction(!showaction)}} className="operator-wrapper-info flex flex-center">
                             <div className="oparator-avatar flex item-center flex-center">
-                                <img className="avatar-image" src={`${originurl}${direact?direact.avatar:user.avatar}`}/>
+                                <img className="avatar-image" src={`${direact?direact.avatar:user.avatar}`}/>
                                 <div style={{bottom: '5px',right: '5px',transform: 'translate(50%, 50%)'}} className="s45kfl79 emlxlaya bkmhp75w spb7xbtv pmk7jnqg kavbgo14">
                                     {direact && direact.online || direact==undefined?
                                     <span className="status-online" data-visualcompletion="ignore">

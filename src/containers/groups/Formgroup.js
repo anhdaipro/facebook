@@ -19,7 +19,7 @@ const Formgroup=()=>{
                     <h1>Tạo nhóm</h1>
                     <div className={styles.item}>
                         <div className={`avatar`}>
-                            <img src={originurl+item.avatar} className="avatar__image"/>
+                            <img src={item.avatar} className="avatar__image"/>
                         </div>
                         <div>
                             <div className={styles.name}></div>

@@ -365,12 +365,12 @@ export default function Addcomment(props){
                             {file.file_preview?
                             
                                 <div style={{width:'300px',height:'300px'}} class="i09qtzwb qmr60zad inkptoze qlfml3jp e72ty7fz">
-                                    <img className="datstx6m bixrwtb6 k4urcfbm" src={originurl+file.file_preview}/>
+                                    <img className="datstx6m bixrwtb6 k4urcfbm" src={file.file_preview}/>
                                 </div>
                                 
                             :
                             <div className="uiScaledImageContainer" style={{width:'60px',height:'80px'}}>
-                                <img className="scaledImageFitWidth img" src={`${originurl}${file.file_preview?file.file_preview:file.file}`} alt="Ảnh của Nguyễn Trãi." width="60" height="80" caption="Ảnh của Nguyễn Trãi."/>
+                                <img className="scaledImageFitWidth img" src={`${file.file_preview?file.file_preview:file.file}`} alt="Ảnh của Nguyễn Trãi." width="60" height="80" caption="Ảnh của Nguyễn Trãi."/>
                             </div>}
                         </div>
                     </div>

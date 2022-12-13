@@ -149,7 +149,7 @@ const NewGroup=(props)=>{
                     <div className="p-1">
                         <div className={`${styles.account}`}>
                             <div className={`${styles.avatar}`}>
-                                <img src={originurl+user.avatar} className="avatar__image"/>
+                                <img src={user.avatar} className="avatar__image"/>
                             </div>
                             <div>
                                 <div className={styles.name}>{user.name}</div>

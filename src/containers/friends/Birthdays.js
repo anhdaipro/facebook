@@ -42,7 +42,7 @@ const FriendsBirthday=()=>{
                             <div key={item.id} className={`${styles.account} item-space`}>
                                 <div className="flex flex-center">
                                     <div className={`avatar`}>
-                                        <img src={originurl+item.avatar} className="avatar__image"/>
+                                        <img src={item.avatar} className="avatar__image"/>
                                     </div>
                                     <div>
                                         <div className={styles.name}>{item.name}</div>
@@ -73,7 +73,7 @@ const FriendsBirthday=()=>{
                                         content={<div>{new Date(item.date_of_birth).getDay()} Tháng {('0'+(new Date(item.date_of_birth).getMonth()+1)).slice(-2)} là sinh nhật của {item.name}</div>}
                                     >
                                         <div key={item.id} className={`avatar`}>
-                                            <img src={originurl+item.avatar} className="avatar__image"/>
+                                            <img src={item.avatar} className="avatar__image"/>
                                         </div>      
                                     </ Tooltip>  
                                 )}

@@ -49,12 +49,12 @@ const Rightcontent=(props)=>{
                                     <li key={item.user_id} className="friend-suggested" style={{width:`268px`,padding:0}}>
                                         <Link to={item.username}>
                                             <div className="friend-suggested-container">
-                                                <div style={{backgroundImage:`url(${originurl}${item.avatar})`,backgroundSize:'contain',backgroundRepeat:'no-repeat',width:'100%'}}></div>
+                                                <div style={{backgroundImage:`url(${item.avatar})`,backgroundSize:'contain',backgroundRepeat:'no-repeat',width:'100%'}}></div>
                                                     <a className="friend-suggested-name">{item.name}</a>
                                                     {item.mutual_friends?
                                                     <div className="friend-suggested-avatar">
                                                         {item.mutual_friends.listgroup.map(avatar=>
-                                                        <img key={avatar} src={originurl+avatar}/>
+                                                        <img key={avatar} src={avatar}/>
                                                     )}   
                                                     </div>:''}
                                                 <div className={`btn-action-friend ${item.friend_invitation?'btn-second':'btn-add-friend'}`}>

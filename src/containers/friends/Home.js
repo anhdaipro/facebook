@@ -37,7 +37,7 @@ const Homefriend=()=>{
                             <div className={styles.item_wrapper}>
                             <div key={item.user_id} className={styles.item}>
                                 <a className="link-account">
-                                    <img className={styles.avatar} src={originurl+item.avatar}/>
+                                    <img className={styles.avatar} src={item.avatar}/>
                                 </a>
                                 <div className='p-12'>
                                     <a className={styles.name}>
@@ -69,7 +69,7 @@ const Homefriend=()=>{
                             <div className={styles.item_wrapper}>
                             <div key={item.user_id} className={styles.item}>
                                 <a className="link-account">
-                                    <img className={styles.avatar} src={originurl+item.avatar}/>
+                                    <img className={styles.avatar} src={item.avatar}/>
                                 </a>
                                 <div className='p-12'>
                                     <a className={styles.name}>

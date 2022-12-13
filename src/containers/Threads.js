@@ -112,9 +112,9 @@ const Threads=(props)=>{
                                     <div className="rq0escxv l9j0dhe7 du4w35lb e5d9fub0 oeao4gh3 notification-body-avatar">
                                         {thread.members.length>0?<>
                                         {thread.members.filter(member=>member.user_id!=user.id).map(member=>
-                                        <img alt="Phạm Đại" class="a8c37x1j d2edcug0 sn7ne77z bixrwtb6" referrerpolicy="origin-when-cross-origin" src={originurl+member.avatar}/>
+                                        <img alt="Phạm Đại" class="a8c37x1j d2edcug0 sn7ne77z bixrwtb6" referrerpolicy="origin-when-cross-origin" src={member.avatar}/>
                                         )}</>:
-                                        <img alt="Phạm Đại" class="a8c37x1j d2edcug0 sn7ne77z bixrwtb6" referrerpolicy="origin-when-cross-origin" src={originurl+user.avatar}/>}
+                                        <img alt="Phạm Đại" class="a8c37x1j d2edcug0 sn7ne77z bixrwtb6" referrerpolicy="origin-when-cross-origin" src={user.avatar}/>}
                                     </div>
                                     <div className="notification-info mr-8">
                                         <div className="mb-8">

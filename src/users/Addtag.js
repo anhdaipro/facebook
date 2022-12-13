@@ -76,7 +76,7 @@ const Listviewer=(props)=>{
                             <span role="gridcell">
                                 <div class="bp9cbjyn beltcj47 p86d2i9g aot14ch1 kzx2olss pq6dq46d rv4hoivh h4z51re5 oo1teu6h e5nlhep0 ecm0bbzt">
                                     <div aria-hidden="true" class="oi9244e8">
-                                        <img height='40' width='40' class="hu5pjgll op6gxeva" src={originurl+item.avatar} alt="" height="20" width="20"/>
+                                        <img height='40' width='40' class="hu5pjgll op6gxeva" src={item.avatar} alt="" height="20" width="20"/>
                                     </div>
                                     <div aria-hidden="true" class="oi9244e8">
                                         <span class="d2edcug0 hpfvmrgz qv66sw1b c1et5uql lr9zc1uh a8c37x1j fe6kdd0r mau55g9w c8b282yb keod5gw0 nxhoafnm aigsh9s9 d9wwppkn mdeji52x e9vueds3 j5wam9gi lrazzd5p q66pz984" dir="auto">{item.name}</span>
@@ -107,7 +107,7 @@ const Listviewer=(props)=>{
                                 setState({...state,text:''})
                                 }} class="oajrlxb2 g5ia77u1 qu0x051f esr5mh6w e9989ue4 r7d6kgcz p7hjln8o esuyzwwr f1sip0of n00je7tq arfg74bv qs9ysxi8 k77z8yql abiwlrkh p8dawk7l lzcic4wl dwo3fsh8 rq0escxv nhd2j8a9 j83agx80 btwxx1t3 pfnyh3mw opuu4ng7 kj2yoqh6 kvgmc6g5 oygrvhab l9j0dhe7 i1ao9s8h du4w35lb bp9cbjyn cxgpxx05 dflh9lhu sj5x9vvc scb9dxdr" role="menuitem" tabindex="0">
                                 <div class="bp9cbjyn tiyi1ipj j83agx80 taijpn5t tvfksri0">
-                                    <img class="hu5pjgll lzf7d6o1" src={originurl+item.avatar} alt="" height="40" width="40"/>
+                                    <img class="hu5pjgll lzf7d6o1" src={item.avatar} alt="" height="40" width="40"/>
                                 </div>
                                 <div class="bp9cbjyn j83agx80 btwxx1t3 buofh1pr i1fnvgqd hpfvmrgz">
                                     <div class="j83agx80 cbu4d94t ew0dbk1b irj2b8pg">
@@ -272,7 +272,7 @@ const Addtags=(props)=>{
                                             }} key={mention.id} data-e2e="comment-at-list" className="tiktok-d4c6zy-DivItemBackground flex flex-center item-space ewopnkv6 p-8">
                                                 <div className="tiktok-1rn2hi8-DivItemContainer flex-center ewopnkv5">
                                                     <span shape="circle" className="tiktok-tuohvl-SpanAvatarContainer e1e9er4e0" style={{flex: '0 0 40px', width: '40px', height: '40px'}}>
-                                                        <img loading="lazy" src={originurl+mention.avatar} className="tiktok-1zpj2q-ImgAvatar e1e9er4e1"/>
+                                                        <img loading="lazy" src={mention.avatar} className="tiktok-1zpj2q-ImgAvatar e1e9er4e1"/>
                                                     </span>
                                                     <div className="tiktok-4f7266-DivInfoContainer ewopnkv7">
                                                         <p className="tiktok-15s5y80-PMentionInfoLine ewopnkv8">

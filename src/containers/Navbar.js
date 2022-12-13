@@ -195,7 +195,7 @@ const Navbar=(props)=>{
                             <li onClick={(e)=>searchitem(e,item)} key={item.id} className="search-item">
                                 {item.user?
                                 <div className="search-item-avatar"> 
-                                    <img src={originurl+item.user.avatar}/>
+                                    <img src={item.user.avatar}/>
                                 </div>:
                                 <div class="search-item-keyword">
                                     <i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style={{backgroundImage: `url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/1nXLBe7cfOm.png)`, backgroundPosition: `0px -649px`, backgroundSize: `auto`, width: `20px`, height: `20px`, backgroundRepeat: `no-repeat`, display: `inline-block`}}></i>
@@ -215,7 +215,7 @@ const Navbar=(props)=>{
                                 <li onClick={e=>addsearch(e,item)} key={item.id} className="search-item">
                                     {item.avatar?
                                     <div className="search-item-avatar"> 
-                                        <img src={originurl+item.avatar}/>
+                                        <img src={item.avatar}/>
                                     </div>:
                                     <div class="search-item-keyword">
                                         <i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style={{backgroundImage: `url(https://static.xx.fbcdn.net/rsrc.php/v3/yh/r/GUBrx59viEV.png)`, backgroundPosition: `-51px -109px`, backgroundSize: `auto`, width: `16px`, height: `16px`, backgroundRepeat: `no-repeat`, display: `inline-block`}}></i>
@@ -336,14 +336,14 @@ const Navbar=(props)=>{
             <li  class="navbar__link--profile navbar__link navbar__link--hoverable navbar__link--tappable">
                 <div onClick={()=>setShowinfo(!showinfo)} aria-label="Trang cá nhân của bạn" class="navbar__link--icon" role="button" tabindex="0">
                     {user?
-                    <img class="profile" src={originurl+user.avatar} />:''}
+                    <img class="profile" src={user.avatar} />:''}
                 </div>
                 {showinfo?
                 <div className="drop-down p-8" style={{width:'300px'}}>
                     <div className="profile-info scb9dxdr nnctdnn4">
                         <div className="flex flex-center nhd2j8a9">
                             <div className="border-50 mr-1_2" style={{height: '36px', width: '36px'}}>
-                                <img height='36' width='36' src={originurl+user.avatar}/></div>
+                                <img height='36' width='36' src={user.avatar}/></div>
                             <div className="name">{user.name}</div>
                             
                         </div>

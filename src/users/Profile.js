@@ -154,7 +154,7 @@ const Profile=(props)=>{
 				<>
                 <section className="cover-image-section">		
                     <header className="cover-hader-site">	
-                        <img src={profile.cover_image_file?profile.cover_image_file:originurl+profile.cover_image}/>
+                        <img src={profile.cover_image_file?profile.cover_image_file:profile.cover_image}/>
                         {formdata.cover_image_file?
 						<div className="action-image-cover">
 							<div className="mr-4">	
@@ -197,7 +197,7 @@ const Profile=(props)=>{
                         <div className="profile-image-site">
                             <div className="profile-image-div">
                                 <a href="#" id="profile-link">
-                                    <img id="Profile_images" src={profile.avatar_file?profile.avatar_file:originurl+ profile.avatar}/>
+                                    <img id="Profile_images" src={profile.avatar_file?profile.avatar_file: profile.avatar}/>
                                 </a>
                                 <span onClick={e=>fileavataref.current.click()} className="fas fa-camera">
 								<i data-visualcompletion="css-img" className="hu5pjgll lzf7d6o1" style={{backgroundImage: `url(https://static.xx.fbcdn.net/rsrc.php/v3/y_/r/1nXLBe7cfOm.png)`, backgroundPosition: '0px -544px', backgroundSize: 'auto', width: '20px', height: '20px', backgroundRepeat: 'no-repeat', display: 'inline-block'}}></i>
@@ -219,7 +219,7 @@ const Profile=(props)=>{
                         <div className="friends-img-div">
                             {profile.mutual_friends.listfriend.map(item=>
                             <div className="firend-img a">
-                                <img id="frind-image-1" src={originurl+ item}/>
+                                <img id="frind-image-1" src={ item}/>
                             </div>
 							)}
                             
@@ -1332,7 +1332,7 @@ const Profile=(props)=>{
 													classname={''}
 													offset={offset}
 													setoffset={(data)=>setoffset(data)}
-													children={<img alt="" referrerpolicy="origin-when-cross-origin" src={profile.avatar_file?profile.avatar_file:originurl+profile.avatar}/>}
+													children={<img alt="" referrerpolicy="origin-when-cross-origin" src={profile.avatar_file?profile.avatar_file:profile.avatar}/>}
 												/>
 											</div>
 										</div>
@@ -1341,7 +1341,7 @@ const Profile=(props)=>{
 												classname={'a7woen2v'}
 												offset={offset}
 												setoffset={(data)=>setoffset(data)}
-												children={<img alt="" referrerpolicy="origin-when-cross-origin" src={profile.avatar_file?profile.avatar_file:originurl+profile.avatar}/>}
+												children={<img alt="" referrerpolicy="origin-when-cross-origin" src={profile.avatar_file?profile.avatar_file:profile.avatar}/>}
 											/>
 											
 										</div>

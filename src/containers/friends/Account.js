@@ -59,7 +59,7 @@ const Account=(props)=>{
         <div key={item.id} className={styles.item}>
             <div className="flex flex-center">
                 <div className={`avatar`}>
-                    <img src={originurl+item.avatar} className="avatar__image"/>
+                    <img src={item.avatar} className="avatar__image"/>
                 </div>
                 <div className={styles.name}>{item.name}</div>
             </div>

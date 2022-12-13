@@ -362,7 +362,7 @@ const Chatbody=(props)=>{
                         }} key={mention.id} data-e2e="comment-at-list" className="tiktok-d4c6zy-DivItemBackground ewopnkv6">
                             <div className="tiktok-1rn2hi8-DivItemContainer ewopnkv5 item-space">
                                 <span shape="circle" className="tiktok-tuohvl-SpanAvatarContainer e1e9er4e0" style={{flex: '0 0 40px', width: '40px', height: '40px'}}>
-                                    <img loading="lazy" src={originurl+mention.avatar} className="tiktok-1zpj2q-ImgAvatar e1e9er4e1"/>
+                                    <img loading="lazy" src={mention.avatar} className="tiktok-1zpj2q-ImgAvatar e1e9er4e1"/>
                                 </span>
                                 <div className="tiktok-4f7266-DivInfoContainer ewopnkv7">
                                     <p className="tiktok-15s5y80-PMentionInfoLine ewopnkv8">
@@ -477,7 +477,7 @@ const Chatbody=(props)=>{
                                                     <div className="d2edcug0">
                                                         <div style={{maxWidth: '300px'}}>
                                                             <div class="a8c37x1j e72ty7fz qlfml3jp inkptoze l9j0dhe7 ni8dbmo4 stjgntxs dbpd2lw6 mtvs877s qttc61fc">
-                                                                <img alt="" src={originurl+message.media_story} class="a8c37x1j idiwt2bm d2edcug0 dbpd2lw6" style={{display: 'block', maxHeight: '100px', maxWidth: '100%'}}/>
+                                                                <img alt="" src={message.media_story} class="a8c37x1j idiwt2bm d2edcug0 dbpd2lw6" style={{display: 'block', maxHeight: '100px', maxWidth: '100%'}}/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -510,7 +510,7 @@ const Chatbody=(props)=>{
                                                             <Link to={`/message_media?thread_id=${thread.id}&message_id=${message.id}&id=${file.id}`}>
                                                                 <div className="chat-message-image">
                                                                     <div className="image">
-                                                                        <img className="chat-image" src={originurl+file.file} alt="" />
+                                                                        <img className="chat-image" src={file.file} alt="" />
                                                                     </div>
                                                                 </div>
                                                             </Link>
@@ -526,7 +526,7 @@ const Chatbody=(props)=>{
                                             <Link to={`/message_media?thread_id=${thread.id}&message_id=${message.id}&id=${file.id}`}>
                                                 <div className='chat-message-file' key={file.file_name}>
                                                     <div className="chat-messsage-file-preview">
-                                                        <img className="chat-image-preview" src={file.media_preview?file.media_preview:originurl+file.file_preview} alt=""/>
+                                                        <img className="chat-image-preview" src={file.media_preview?file.media_preview:file.file_preview} alt=""/>
                                                         <div className="chat-message-image-preview-wrap">
                                                             <div className="chat-message-image-preview-pause">
                                                                 <div className="chat-message-image-preview-icon">

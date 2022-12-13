@@ -197,7 +197,7 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
         <div  key={comment.id} className="tiktok-qgh4f0-DivCommentContentContainer ejs0ekz0 flex" id="Comment_Box" value ="1"> 
             <a href="#">
                 <div className="profile-images comment-PI">
-                    <img src={originurl+comment.user.avatar}/>
+                    <img src={comment.user.avatar}/>
                     <div className={`${onlineUsers.some(user=>user.userId==comment.user.id)?'online-icon':'offline_icon'} o_F-CPI`}></div>
                 </div>
             </a>
@@ -205,7 +205,7 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
             <li className="children">
             <div className="flex" style={{width:'100%'}}>
                 <a href="#"><div className="profile-images comment-PI">
-                    <img src={originurl + user.avatar}/>
+                    <img src={user.avatar}/>
                         <div className={`online-icon o_F-CPI`}></div>
                     </div>
                 </a>
@@ -302,7 +302,7 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
                     <div className="i09qtzwb rq0escxv n7fi1qx3 pmk7jnqg j9ispegn kr520xx4">
                     <div  className="datstx6m l9j0dhe7 k4urcfbm">
                         <div ref={parent} className="k4urcfbm hwddc3l5 datstx6m">
-                            <video ref={videoref} className="k4urcfbm datstx6m a8c37x1j" autoplay='' preload="auto" muted={video.muted && volume<=0?true:false} playsInline loop  src={originurl+comment.fileupload.file} style={{display: 'block'}}></video>
+                            <video ref={videoref} className="k4urcfbm datstx6m a8c37x1j" autoplay='' preload="auto" muted={video.muted && volume<=0?true:false} playsInline loop  src={comment.fileupload.file} style={{display: 'block'}}></video>
                             <div data-instancekey="id-vpuid-ffb1ce9ab72d74">
                                 <div className="k4urcfbm kr520xx4 pmk7jnqg datstx6m" data-visualcompletion="ignore">
                                     
@@ -423,7 +423,7 @@ const Comment=({user,report,item,setitem,setcommentreply,url,actioncomment,onlin
                     </div>
                     
                     </div>
-                    :<img height="210" width="210" alt="Không có mô tả ảnh." referrerpolicy="origin-when-cross-origin" src={`${originurl}${comment.fileupload.file_preview?comment.fileupload.file_preview:comment.fileupload.file}`}/>}
+                    :<img height="210" width="210" alt="Không có mô tả ảnh." referrerpolicy="origin-when-cross-origin" src={`${comment.fileupload.file_preview?comment.fileupload.file_preview:comment.fileupload.file}`}/>}
                 </div>:''}
                 <div className="comment-list-btn">
                     <ul>

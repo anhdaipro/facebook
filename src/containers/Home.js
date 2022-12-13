@@ -156,7 +156,7 @@ const Homepage=(props)=>{
                         <div class="story-section">
                             <div onClick={e=>navigate('/stories/create')} class="story create">
                                 <div class="dp-image">
-                                    <img src={originurl+user.avatar} alt="Profile pic"/>
+                                    <img src={user.avatar} alt="Profile pic"/>
                                 </div>
                                 <span class="dp-container">
                                     <svg fill="currentColor" viewBox="0 0 20 20" width="1em" height="1em" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 ljqsnud1 jnigpg78 odw8uiq3"><g fill-rule="evenodd" transform="translate(-446 -350)"><g fill-rule="nonzero"><path d="M95 201.5h13a1 1 0 1 0 0-2H95a1 1 0 1 0 0 2z" transform="translate(354.5 159.5)"></path><path d="M102.5 207v-13a1 1 0 1 0-2 0v13a1 1 0 1 0 2 0z" transform="translate(354.5 159.5)"></path></g></g></svg>
@@ -168,9 +168,9 @@ const Homepage=(props)=>{
 
                             {liststories.map(story=>
                                 <div onClick={()=>navigate(`/stories/${story.user_id}`)} key={story.id} class="story">
-                                    <img src={story.file?originurl+story.file:listbackground.find(item=>item.index==JSON.parse(story.caption).id).src} alt="Anuska's story"/>
+                                    <img src={story.file?story.file:listbackground.find(item=>item.index==JSON.parse(story.caption).id).src} alt="Anuska's story"/>
                                     <div class="dp-container">
-                                        <img src={originurl+story.avatar} alt=""/>
+                                        <img src={story.avatar} alt=""/>
                                     </div>
                                     <p class="name">{story.name}</p>
                                 </div>
@@ -180,7 +180,7 @@ const Homepage=(props)=>{
                         <div class="post create">
                             <div class="post-top">
                                 <div class="dp">
-                                    <img src={originurl+ user.avatar} alt=""/>
+                                    <img src={ user.avatar} alt=""/>
                                 </div>
                                 <div className="div-input" onClick={(e)=>{
                                     const data={show:true}
@@ -239,12 +239,12 @@ const Homepage=(props)=>{
                                         <li key={item.user_id} className="friend-suggested" style={{width:`200px`,padding:0}}>
                                             <Link to={item.username}>
                                                 <div className="friend-suggested-container">
-                                                    <div style={{backgroundImage:`url(${originurl}${item.avatar})`,backgroundSize:'contain',backgroundRepeat:'no-repeat',width:'200px',height:`200px`}}></div>
+                                                    <div style={{backgroundImage:`url(${item.avatar})`,backgroundSize:'contain',backgroundRepeat:'no-repeat',width:'200px',height:`200px`}}></div>
                                                     <a className="friend-suggested-name">{item.name}</a>
                                                     {item.mutual_friends?
                                                     <div className="friend-suggested-avatar">
                                                         {item.mutual_friends.listfriend.map(avatar=>
-                                                        <img key={avatar} src={originurl+avatar}/>
+                                                        <img key={avatar} src={avatar}/>
                                                         )}
                                                         
                                                         <span className="count-friend-same">{item.mutual_friends.count} bạn chung</span>
@@ -298,7 +298,7 @@ const Homepage=(props)=>{
                         {listfriend.map(item=>
                             <a onClick={e=>setshowchat(e,item)} key={item.id} class='friend' href="#">
                                 <div class="dp">
-                                    <img src={originurl+item.avatar} alt=""/>
+                                    <img src={item.avatar} alt=""/>
                                     {onlineUsers.some(user=>user.userId==item.id)?
                                     <div style={{bottom: '5px',right: '5px',transform: 'translate(50%, 50%)'}} className="s45kfl79 emlxlaya bkmhp75w spb7xbtv pmk7jnqg kavbgo14">                           
                                         <span class="status-online" data-visualcompletion="ignore"></span>            
@@ -323,8 +323,8 @@ const Homepage=(props)=>{
                                     item.members.filter(member=>member.user_id!=user.id).map((member,i)=><>
                                     {i<2?
                                     <div className={`pmk7jnqg ${i==0?'i09qtzwb j9ispegn':'n7fi1qx3 kr520xx4'}`}>
-                                        <img src={originurl+member.avatar} height='24' width='24' alt=""/>
-                                    </div>:''}</>):<div><img src={originurl+user.avatar} height='48' width='48' alt=""/></div>}
+                                        <img src={member.avatar} height='24' width='24' alt=""/>
+                                    </div>:''}</>):<div><img src={user.avatar} height='48' width='48' alt=""/></div>}
                                     <div style={{bottom: '5px',right: '5px',transform: 'translate(50%, 50%)'}} className="s45kfl79 emlxlaya bkmhp75w spb7xbtv pmk7jnqg kavbgo14">                           
                                         <span class="status-online" data-visualcompletion="ignore"></span>            
                                     </div>

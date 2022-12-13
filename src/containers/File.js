@@ -219,7 +219,7 @@ const File=(props)=>{
                                     <img
                                         alt="Crop image"
                                         className="ji94ytn4 d2edcug0 r9f5tntg r0294ipz"
-                                        src={originurl+file.file}
+                                        src={file.file}
                                         
                                     />
                                     {addtagfile?<>
@@ -242,7 +242,7 @@ const File=(props)=>{
                                                 
                                                 <li onClick={(e)=>settagupdate(e,item)} key={i} className="facebook-tag">
                                                     <div className="facebook-tag-avatar">
-                                                        <img width='36' src={originurl+item.avatar}/>
+                                                        <img width='36' src={item.avatar}/>
                                                     </div>
                                                     <div>{item.name}</div>
                                                 </li></>
@@ -275,7 +275,7 @@ const File=(props)=>{
                                 </div>
                                 :
                                 <div  className="apxknhg1">
-                                    <video ref={videoref} style={{display: 'block'}} className="k4urcfbm r0294ipz datstx6m"  controls={true}  src={originurl+file.file}></video>    
+                                    <video ref={videoref} style={{display: 'block'}} className="k4urcfbm r0294ipz datstx6m"  controls={true}  src={file.file}></video>    
                                 </div>
                             }
                             </div>
@@ -354,7 +354,7 @@ const File=(props)=>{
                             <div className="relative flex flex-center">
                                 <a href="#">
                                     <div className="profile-images">
-                                        <img src={originurl+file.user.avatar}/>
+                                        <img src={file.user.avatar}/>
                                         <div className={`${onlineUsers.some(user=>user.userId==file.user.id)?'online-icon':'offline_icon'}`}></div>
                                     </div>
                                 </a>
@@ -366,7 +366,7 @@ const File=(props)=>{
                                         <div className="profile-name-hover">
                                         
                                             <a href="#"><div className="profile-images">
-                                                <img src={originurl+file.user.avatar}/>
+                                                <img src={file.user.avatar}/>
                                                 <div className={`${onlineUsers.some(user=>user.userId==file.user.id)?'online-icon':'offline_icon'}`}></div>
                                             </div></a>
 

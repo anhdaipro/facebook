@@ -90,14 +90,14 @@ const Mediathread=(props)=>{
                                     <img
                                         alt="Crop image"
                                         className="ji94ytn4 d2edcug0 r9f5tntg r0294ipz"
-                                        src={originurl+file.file}
+                                        src={file.file}
                                         
                                     />
                                   
                                 </div>
                                 :
                                 <div  className="apxknhg1">
-                                    <video ref={videoref} style={{display: 'block'}} className="k4urcfbm r0294ipz datstx6m"  controls={true}  src={originurl+file.file}></video>    
+                                    <video ref={videoref} style={{display: 'block'}} className="k4urcfbm r0294ipz datstx6m"  controls={true}  src={file.file}></video>    
                                 </div>
                             }
                             </div>
@@ -112,7 +112,7 @@ const Mediathread=(props)=>{
                         <div className="list-file-chat flex">
                         {listfile.map(item=>
                             <div onClick={()=>setFile(item)} className={`file-chat beltcj47 p86d2i9g aot14ch1 kzx2olss q9uorilb pfnyh3mw ni8dbmo4 stjgntxs tv7at329 thwo4zme fv0vnmcu ggphbty4 ${file.id===item.id?'active':''} border-6`} key={item.id}>
-                                <img className="datstx6m bixrwtb6 k4urcfbm" src={`${originurl}${item.file_preview?item.file_preview:item.file}`} />
+                                <img className="datstx6m bixrwtb6 k4urcfbm" src={`${item.file_preview?item.file_preview:item.file}`} />
                             </div>
                         )}
                     </div>  
