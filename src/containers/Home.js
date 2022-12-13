@@ -235,9 +235,6 @@ const Homepage=(props)=>{
                             <div className="friends-suggested-wrapper">
                                 <div className="list-item ">
                                     <ul className="list-friends-suggested" style={{transform:`translate(${translate}px,0px)`,transition: `all 500ms ease 0s`,width:`250%`}}>
-                                        
-                                        
-                                        
                                         {listfriendsuggest.map(item=>
                                         <li key={item.user_id} className="friend-suggested" style={{width:`200px`,padding:0}}>
                                             <Link to={item.username}>

@@ -24,7 +24,7 @@ const Layout = ({children,checkAuthenticated,isAuthenticated,user,report,datatur
             setReport(report)
         }
     },[report])
-
+    
     useEffect(()=>{
         if(post){
             setAction(post.action)
@@ -50,7 +50,7 @@ const Layout = ({children,checkAuthenticated,isAuthenticated,user,report,datatur
     }
     useEffect(() => {
         (async ()=>{
-            if(localStorage.token!='null'){
+            if(localStorage.token){
                 checkAuthenticated()
             }
         })() 
@@ -59,10 +59,8 @@ const Layout = ({children,checkAuthenticated,isAuthenticated,user,report,datatur
 
     const onUnload=(e)=>{
         (async ()=>{
-            if(expiry>0 && localStorage.token!='null'){
-                let form =new FormData()
-                form.append('online',false)
-                axios.post(updateuseronlineURL,form,headers)
+            if(expiry>0 && localStorage.token){
+                axios.post(updateuseronlineURL,JSON.stringify({online:false}),headers)
             }
         })()
     }

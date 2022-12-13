@@ -182,6 +182,17 @@ export function groupBy(data, property) {
     return acc;
   }, []);
 }
+export function groupBymonth(data, property) {
+  return data.reduce((acc, obj) => {
+    const key = obj[property];
+    console.log(key)
+    if (!acc[key]) {  
+      acc[key] = [];
+    }
+    acc[key].push(obj);
+    return acc;
+  }, []);
+}
 export const weekday = ["Chủ Nhật","Thứ Hai","Thứ Ba","Thứ Tư","Thứ Năm","Thứ Sáu","Thứ Bảy"];
 export function matchYoutubeUrl(url) {
   var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
@@ -279,7 +290,9 @@ name:"May",coin:5},
 {image:'https://res.cloudinary.com/dltj2mkhl/image/upload/v1653455647/a4c4dc437fd3a6632aba149769491f49.png_tplv-obj_xkoytb.png',
 name:"Tiktok",coin:5},
 ]
-
+export const listchoice=[{name:"Lượt xem",value:'viewer'},
+{name:"Quản lí",value:'manage'},
+]
 export const listactionchat=[
   {name:'Mở bằng message',src:'https://static.xx.fbcdn.net/rsrc.php/v3/yh/r/GUBrx59viEV.png',
   position:'0 -46px',action:'open-message'},

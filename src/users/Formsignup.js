@@ -45,31 +45,23 @@ const Formsignup=(props)=>{
         }
         setShow({...show,[name]:false}) 
     }
-     
+    const {first_name,last_name,email,password,phone}=formData
     const submit=(e)=>{
-        if(validatEemail(formData.email) || isVietnamesePhoneNumber(formData.email)){
-            let form=new FormData()
-            form.append('email',formData.email)
-            axios.post(checkuserURL,form,headers)
+        if(validatEemail(email) || isVietnamesePhoneNumber(email)){
+            axios.post(checkuserURL,JSON.stringify({email:email}),headers)
             .then(res=>{
                 setState({...state,error:res.data.error,show:true,requestsend:res.data.error?false:true})
                
             })
         }
     }
-    const {first_name,last_name,email,password}=formData
+    
     const register=(e)=>{
         (async ()=>{
             try{
                 e.preventDefault()
-                let form =new FormData()
-                if(isVietnamesePhoneNumber(formData.email)){
-                    form.append('phone',`+84 ${(formData.email).slice(-9)}`)
-                }
-                else{
-                    form.append('email',formData.email)
-                }
-                form.append('code',formData.code)
+                
+                const form=isVietnamesePhoneNumber(phone)?{'phone':`+84 ${phone.slice(-9)}`,code:code}:{'email':email,code:code}
                 const res =await axios.post(isVietnamesePhoneNumber(formData.email)?verifyphoneURL:verifyemailURL,form,headers)
                 if(res.data.verify){
                     const username=formData.username

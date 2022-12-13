@@ -27,6 +27,10 @@ import Homefriend from './containers/friends/Home'
 import Listfriend from './containers/friends/List'
 import InvitationFriend from './containers/friends/Requests'
 import Suggestions from './containers/friends/Suggestions'
+import FriendsBirthday from './containers/friends/Birthdays'
+import Homegroup from './containers/groups/Home'
+import NewGroup from './containers/groups/Groupcreate'
+import Detailgroup from './containers/groups/DetailGroup'
 const Appstore=()=>{ 
   return(
         <Provider store={store}>
@@ -39,6 +43,10 @@ const Appstore=()=>{
                                         <Route exact path="/friends/suggestions" element={<Suggestions/>}/>
                                         <Route exact path="/friends/requests" element={<InvitationFriend/>}/>
                                         <Route exact path="/friends/list" element={<Listfriend/>}/>
+                                        <Route exact path="/friends/birthdays" element={<FriendsBirthday/>}/>
+                                        <Route exact path="/groups/feed" element={<Homegroup/>}/>
+                                        <Route exact path="/groups/create" element={<NewGroup/>}/>
+                                        <Route exact path="/groups/:id" element={<Detailgroup/>}/>
                                         <Route exact path="/:username" element={<Profile/>}/>
                                         <Route exact path="/stories" element={<Story/>}/>
                                         <Route exact path="/message_media" element={<Mediathread/>}/>

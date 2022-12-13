@@ -116,11 +116,10 @@ export const loginotp = (user_id) => async dispatch =>{
             'Content-Type': 'application/json'
         }
     };
-    let form=new FormData()
-    form.append('user_id',user_id)
+    
     
     try {
-        const res = await axios.post('https://anhdai.herokuapp.com/api/v4/login', form, config);
+        const res = await axios.post('https://anhdai.herokuapp.com/api/v4/login', JSON.stringify({user_id:user_id}), config);
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -175,17 +174,10 @@ export const login = (username, password) => async dispatch => {
             'Content-Type': 'application/json'
         }
     };
-    let form=new FormData()
-    if(validatEemail(username)){
-    form.append('email',username)
-    }
-    else{
-        form.append('username',username)
-    }
-    form.append('password',password)
     
+    const form=validatEemail(username)?{'email':username,'password':password}:{'username':username,'password':password}
     try {
-        const res = await axios.post(loginURL, form, config);
+        const res = await axios.post(loginURL, JSON.stringify(form), config);
 
         dispatch({
             type: LOGIN_SUCCESS,
@@ -204,7 +196,7 @@ export const login = (username, password) => async dispatch => {
 };
 
 export const checkAuthenticated = () => async dispatch => {
-    console.log(localStorage.token)
+ 
             try {
                 const res = await axios.get(userinfoURL,{ 'headers': { Authorization:`JWT ${localStorage.token}` }})
                 dispatch({
@@ -290,9 +282,9 @@ console.log(new Date(expirationDate))
 console.log(new Date())
 export const expiry=new Date(expirationDate).getTime() - new Date().getTime()
 console.log(expiry)
-export const headers={'headers': localStorage.token!='null' && expiry>0?{ Authorization:`JWT ${localStorage.token}`,'Content-Type': 'application/json' }:{'Content-Type': 'application/json'}}
+export const headers={'headers': localStorage.token && expiry>0?{ Authorization:`JWT ${localStorage.token}`,'Content-Type': 'application/json' }:{'Content-Type': 'application/json'}}
 export const logout = () => dispatch => {
-    localStorage.token=null
+    localStorage.removeItem('token')
     
     dispatch({
         type: LOGOUT

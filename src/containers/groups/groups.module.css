@@ -1,0 +1,96 @@
+.body{
+    padding:12px;
+    flex:1
+}
+.list_post{
+  display:flex;
+  flex-wrap:wrap  
+}
+.list_item{
+  margin-top: 12px;
+  padding:12px
+}
+.item{
+  display: flex;
+  align-items: center;
+  padding:8px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.item:hover,.account:hover{
+  background-color: #f1f1f3;
+}
+.post{
+  flex:2 1 500px;
+  background-color: #fff;
+  border-radius: 8px;
+  max-width:600px
+}
+.icon_file{
+  position:absolute;
+  padding:8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #f1f1f3;
+  bottom: 16px;
+  right: 16px;
+}
+.list_action{
+  position:absolute;
+  display:flex;
+  width:100%;
+  top:0;
+  left:0;
+  padding:12px;
+  background-color: var(--always-dark-overlay);
+  box-sizing: border-box;
+}
+.avatar{
+  width:40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.search{
+border-radius: 8px;
+    background-color: #eaebec;
+    min-height: 36px;
+    box-sizing: border-box;
+    padding:0 8px;
+
+    display: flex;
+    align-items: center;
+}
+.icon_file:hover{
+  background-color: #dbdbdb;
+}
+.listitem{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.separator {
+  border-bottom: 1px solid var(--divider);
+  margin: 12px 16px 8px;
+}
+.image_cover{
+width:360px;
+position:relative
+}
+@media screen and (max-width: 880px) {
+  .image_cover{
+    width: 100%;
+  }
+}
+.avatar .avatar__image{
+  border-radius: 6px ;
+}
+.icon{
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  align-items: center;
+  background: #e4e6eb;
+  margin-right: 8px;
+  }

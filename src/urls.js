@@ -22,6 +22,7 @@ export const listfriendURL=`${api}/v3/user/friend/list`
 export const listfrienduserURL=`${api}/v3/user/friends/list`
 export const listfriendsuggestURL=`${api}/v3/user/friendsuggested/list`
 export const listinvitationURL = `${api}/v3/user/invitation/list`
+export const friendsBirthdayURL=`${api}/v3/user/friends/birthdays`
 export const storyinfouserURL=`${api}/v3/story/info/friends`
 export const liststoryfriendURL=`${api}/v3/story/friends`
 export const actioncommentURL=`${api}/v3/comment`
@@ -45,6 +46,9 @@ export const countpostURL=`${api}/v3/post/count`
 export const countstoryURL=`${api}/v3/story/count`
 export const countnotifiURL=`${api}/v3/notification/count`
 export const chatgroupURL=`${api}/v3/group/list`
+//group
+export const creategroupURL=`${api}/v2/groups/create`
+export const groupdetailURL=`${api}/v2/groups`
 // live
 export const listcategoriesURL=`${api}/v2/categories/`
 export const sendcoinURL=`${api}/v2/give/coin`
