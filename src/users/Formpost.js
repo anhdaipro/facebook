@@ -215,7 +215,7 @@ const Formpost=(props)=>{
     const unique = [...new Map(list_tags.map(item =>[item['id'], item])).values()]
     console.log(unique)    
     const rawContentState = convertToRaw(editorState.getCurrentContent());
-    const submit=()=>{
+    const submit= async ()=>{
         let list_tag_notification=[]
         let form=new FormData()
         form.append('viewer',viewer.value)
@@ -273,10 +273,10 @@ const Formpost=(props)=>{
         if(datapost.id){
             form.append('action','update')
         }
-        axios.post(datapost.id?`${actionpostURL}/${datapost.id}`:uploadpostURL,form,headers)
-        .then(res=>{
-            socket.current.emit('sendNotifi',list_tag_notification)
-        })
+        const res= await axios.post(datapost.id?`${actionpostURL}/${datapost.id}`:uploadpostURL,form,headers)
+        setShow(false)
+        socket.current.emit('sendNotifi',list_tag_notification)
+        
     }
     return(
         <>
