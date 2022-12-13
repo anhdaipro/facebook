@@ -1,6 +1,6 @@
 
-export const api='http://127.0.0.1:8000/api'
-export const originurl='http://127.0.0.1:8000'
+export const api='https://facebookapp-production.up.railway.app/api'
+export const originurl='https://facebookapp-production.up.railway.app'
 export const verifyemailURL=`${api}/v3/verify/email`
 export const verifyphoneURL=`${api}/v3/verify/phone`
 export const sendOTPemailURL=`${api}/v3/send-otp/email`
